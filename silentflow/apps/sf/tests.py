@@ -1,3 +1,10 @@
 from django.test import TestCase
 
-# Create your tests here.
+
+class TestTests(TestCase):
+
+    def test_test(self):
+        self.assertEqual('foo', 'foo')
+
+    def test_test2(self):
+        self.assertAlmostEqual('foo', 'foo')

@@ -77,9 +77,13 @@ WSGI_APPLICATION = 'silentflow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'silentflow',
+        'USER': 'silentflow',
+        'PASSWORD': '0L9ou6257e0zyrc',
+        'HOST': '88.198.141.11',
+        'PORT': '5432',
+    },
 }
 
 
