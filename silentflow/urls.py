@@ -19,5 +19,7 @@ from silentflow.apps.sf import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+
+    # admin
     url(r'^control/', admin.site.urls),
 ]
