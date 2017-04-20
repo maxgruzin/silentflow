@@ -1,10 +1,15 @@
 body {
     background-color: #292B2C;
+    color: #fff;
 }
 
 .testclass {
     background-color: #292B2C;
     padding: 30px;
     text-align:center;
+    color: #fff;
+}
+
+.testlink a {
     color: #fff;
 }
