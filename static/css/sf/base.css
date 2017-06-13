@@ -1,15 +1,27 @@
 body {
-    background-color: #292B2C;
+    /* background-color: #292B2C; */
+    background-color: #212121;
     color: #fff;
 }
 
-.testclass {
-    background-color: #292B2C;
-    padding: 30px;
-    text-align:center;
-    color: #fff;
+.sf_navlogo {
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
-.testlink a {
-    color: #fff;
+.button-collapse {
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+}
+
+nav {
+    box-shadow: none;
+}
+
+nav a {
+    color: #fff !important;
+}
+
+nav a:hover {
+    text-decoration: underline !important;
 }
