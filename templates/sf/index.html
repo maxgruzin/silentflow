@@ -8,8 +8,16 @@
         <h2 class="center-align">ambient experimental netlabel</h2>
     </div>
     {% for release in releases %}
-    <div class="testlink">
-        <a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></div>
+    <div class="release-container center-align parallax-container">
+        <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
+        <div class="release-headline">{{ release.review }}</div>
+        <ul>
+        {% for track in release.tracks %}
+            <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>
+        {% endfor %}
+        <div class="parallax"><img src="http://materializecss.com/images/parallax1.jpg"></div>
+        </ul>
+    </div>
     {% endfor %}
 {% endblock %}
 {% block external %}
@@ -23,5 +31,6 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"-->
             <!--integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"-->
             <!--crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="{% static 'js/sf/index.js' %}"></script>
     <link rel="stylesheet" href="{% static '/css/sf/index.css' %}">
 {% endblock %}

@@ -4,6 +4,17 @@
     color: #fff;
 }
 
+.release-container {
+    /* padding-top: 40px; */
+    padding-top: 40px;
+    color: #fff;
+    text-shadow:         1px 1px 3px rgba(50, 50, 50, 1);
+}
+
+.release-headline {
+    font-weight: 300;
+}
+
 h1 {
     font-weight: 100;
     margin-bottom: 0;

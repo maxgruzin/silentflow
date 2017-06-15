@@ -18,10 +18,17 @@ nav {
     box-shadow: none;
 }
 
-nav a {
+a {
     color: #fff !important;
 }
 
-nav a:hover {
+a:hover {
     text-decoration: underline !important;
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
