@@ -2,7 +2,11 @@ body {
     /* background-color: #292B2C; */
     background-color: #212121;
     color: #fff;
+/*    display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
 }
+
 
 .sf_navlogo {
     margin-left: 10px;
@@ -26,9 +30,25 @@ a:hover {
     text-decoration: underline !important;
 }
 
+h1 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0;
+}
+
+
 h3 {
     font-size: 2.5rem;
     font-weight: 100;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.footer-copyright {
+    background-color: #212121 !important;
 }

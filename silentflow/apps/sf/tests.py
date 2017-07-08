@@ -27,4 +27,6 @@ class IndexViewTests(TestCase):
         self.assertGreaterEqual(len(response.context['releases']), 2)
         self.assertEqual(response.context['releases'], 2)
         self.assertEqual(response.context['releases'][0], None)
+        self.assertEqual(response.context['headline'], 2)
+        self.assertEqual(response.context['headline'][0], None)
         # self.assertGreater

@@ -8,14 +8,14 @@
         <h2 class="center-align">ambient experimental netlabel</h2>
     </div>
     {% for release in releases %}
-    <div class="release-container center-align parallax-container">
+    <div class="release-container center-align row">
+        <!--<h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>-->
         <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
-        <div class="release-headline">{{ release.review }}</div>
+        <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
         <ul>
         {% for track in release.tracks %}
             <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>
         {% endfor %}
-        <div class="parallax"><img src="http://materializecss.com/images/parallax1.jpg"></div>
         </ul>
     </div>
     {% endfor %}
