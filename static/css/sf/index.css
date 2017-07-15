@@ -5,9 +5,14 @@
 
 .release-container {
     padding-top: 40px;
+    padding-bottom: 40px;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
+    z-index: 1;
+}
 
+.release-text-container {
+    z-index: 2;
 }
 
 .release-headline {

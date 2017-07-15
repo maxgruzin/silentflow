@@ -45,8 +45,8 @@ class Release(models.Model):
     review = models.TextField(null=True, blank=True)
     slug = models.TextField(null=True, blank=True)
     is_active = models.BooleanField()
-    cover_image = models.TextField(null=True, blank=True)
-    website_image = models.TextField(null=True, blank=True)
+    cover_image = models.ImageField(upload_to='cover_image', null=True, blank=True)
+    website_image = models.ImageField(upload_to='website_image', null=True, blank=True)
     download_link = models.TextField(null=True, blank=True)
 
     class Meta:

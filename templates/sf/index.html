@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load thumbnail %}
 {% block title %}<title>Silent Flow Netlabel - ambient, experimental label</title>{% endblock %}
 {% block content %}
 
@@ -8,10 +9,15 @@
         <h2 class="center-align">ambient experimental netlabel</h2>
     </div>
     {% for release in releases %}
-    <div class="release-container center-align row">
-        <!--<h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>-->
-        <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
-        <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
+        {% thumbnail release.cover_image "300x100" crop="center" as im %}
+    <div class="release-container" style="background: url({{ im.url }}) no-repeat center center fixed; -webkit-background-size: cover;
+        -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        {% endthumbnail %}
+        <div class="release-text-container center-align row">
+            <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
+            <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
+        <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
+        </div>
         <ul>
         {% for track in release.tracks %}
             <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>

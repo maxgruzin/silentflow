@@ -1,11 +1,12 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 SECRET_KEY = '%hft!eighivu_ga=my2zmiop*7jx8cu4$x&mciuy(*jofw8qn7'
 
 DEBUG = True
 PRODUCTION = False
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 ALLOWED_HOSTS = []
 
@@ -18,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'silentflow.apps.sf',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [
@@ -44,6 +46,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -89,8 +93,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
+MEDIA_URL = '/static/media/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
