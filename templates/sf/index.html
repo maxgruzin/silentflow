@@ -9,7 +9,7 @@
         <h2 class="center-align">ambient experimental netlabel</h2>
     </div>
     {% for release in releases %}
-        {% thumbnail release.cover_image "300x100" crop="center" as im %}
+        {% thumbnail release.cover_image "200x75" crop="center" as im %}
     <div class="release-container">
 
         <div class="release-background-container" style="background-image: url({{ im.url }});">
