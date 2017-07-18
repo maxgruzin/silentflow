@@ -10,10 +10,14 @@
     </div>
     {% for release in releases %}
         {% thumbnail release.cover_image "300x100" crop="center" as im %}
-    <div class="release-container" style="background: url({{ im.url }}) no-repeat center center fixed; -webkit-background-size: cover;
-        -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+    <div class="release-container">
+
+        <div class="release-background-container" style="background-image: url({{ im.url }});">
+            <div class="release-background-container_1" style="background-image: url({{ im.url }});"></div>
+            <div class="overlay"></div>
+        </div>
         {% endthumbnail %}
-        <div class="release-text-container center-align row">
+        <div class="release-text-container center-align row" style="">
             <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
             <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
         <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
