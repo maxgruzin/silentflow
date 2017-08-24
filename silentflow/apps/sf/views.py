@@ -15,9 +15,16 @@ def index(request):
         return render(request, 'index.html', {'releases': releases})
 
 
-def release(request):
+def release(request, slug):
 
-    return render(request, 'index.html')
+    if request.method == 'GET':
+        release_qset = Release.objects.get(is_active=True, slug=slug)
+
+        tracklist_qset = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
+            'pos', 'title', 'slug', 'duration'))
+
+        return render(request, 'release.html', {'release': release_qset,
+                                                'tracklist': tracklist_qset})
 
 
 def contact(request):

@@ -17,30 +17,15 @@
             <!--<div class="overlay"></div>-->
         </div>
         {% endthumbnail %}
-        <div class="release-text-container center-align row" style="">
-            <h3><a href="{{ release.download_link }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
+        <div class="release-text-container center-align row">
+            <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
             <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
         <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
         </div>
-        <ul>
-        {% for track in release.tracks %}
-            <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>
-        {% endfor %}
-        </ul>
     </div>
     {% endfor %}
 {% endblock %}
 {% block external %}
-    <!-- Fuck this -->
-    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"-->
-            <!--integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"-->
-            <!--crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"-->
-            <!--integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"-->
-            <!--crossorigin="anonymous"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"-->
-            <!--integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"-->
-            <!--crossorigin="anonymous"></script>-->
     <script type="text/javascript" src="{% static 'js/sf/index.js' %}"></script>
-    <link rel="stylesheet" href="{% static '/css/sf/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sf/index.css' %}">
 {% endblock %}

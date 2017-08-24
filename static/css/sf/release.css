@@ -1,0 +1,35 @@
+.cover-container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
+    /* position: relative; */
+    z-index: 0;
+    /* overflow: hidden; */
+    /* background-color: #000; */
+}
+
+.cover-background-container {
+    position: absolute;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    /* left: -20px; */
+    top: 0;
+    /* filter: blur(15px); */
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0;
+}

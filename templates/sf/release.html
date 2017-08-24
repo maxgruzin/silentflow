@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}<title>Silent Flow Netlabel - ambient, experimental label</title>{% endblock %}
+{% block content %}
+
+    <div class="cover-container">
+        <div class="cover-background-container" style="background-image: url( '{{ MEDIA_URL }}{{ release.website_image }}');">
+            <!--<div class="release-background-container_1" style="background-image: url({{ im.url }});"></div>-->
+            <!--<div class="overlay"></div>-->
+        </div>
+        <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
+
+        <div class="center-align">{{ release.review }}</div>
+
+        <div class="center-align">
+            <ul>
+            {% for track in tracklist %}
+                <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
+        <div class="center-align">
+            <b><a href="{{ release.download_link }}">Download release</a></b>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block external %}
+    <script type="text/javascript" src="{% static 'js/sf/release.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/sf/release.css' %}">
+{% endblock %}
