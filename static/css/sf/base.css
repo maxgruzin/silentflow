@@ -19,8 +19,15 @@ body {
 }
 
 .button-collapse {
-    margin-top: 10px !important;
-    margin-left: 10px !important;
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin: 0px !important;
+}
+
+.brand-logo {
+    height: 64px;
+    padding-right: 10px !important;
 }
 
 nav {

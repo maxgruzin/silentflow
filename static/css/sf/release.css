@@ -3,9 +3,9 @@
     padding-bottom: 120px;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
-    /* position: relative; */
+    position: relative;
     z-index: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     /* background-color: #000; */
 }
 
@@ -20,6 +20,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.review-container{
+    font-size: 1.5rem;
+    font-weight: 100;
 }
 
 h1 {
