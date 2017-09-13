@@ -20,6 +20,8 @@ from silentflow.apps.sf import views
 urlpatterns = [
     url(r'^release/(?P<slug>[-\w]+)/$', views.release, name='release'),
     url(r'^$', views.index, name='index'),
+    url(r'^catalogue/', views.catalogue, name='catalogue'),
+    url(r'^artists/', views.artists, name='artists'),
     url(r'^contact/', views.contact, name='contact'),
 
     # admin

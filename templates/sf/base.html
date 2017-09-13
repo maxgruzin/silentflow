@@ -8,6 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
     <meta name="google-site-verification" content="GSgJSa03K9WFZBSMZOMrX9O_v8aZUznDExfLNNXfE9w" />
+
+    <meta property="og:image" content="{% static 'images/siteimage.png' %}" />
+    <meta itemprop="image" content="{% static 'images/siteimage.png' %}"/>
+    <meta name="twitter:image:src" content="{% static 'images/siteimage.png' %}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/siteimage.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <meta name="theme-color" content="#212121">
+
     {% block meta %}{% endblock %}
     {% block extrahead %}{% endblock %}
 </head>
@@ -22,15 +31,15 @@
             </a>
             <ul class="right hide-on-med-and-down">
                 <!--<li><a href="#">Releases</a></li>-->
-                <!--<li><a href="#">Artists</a></li>-->
-                <!--<li><a href="#">About</a></li>-->
+                <li><a href="/artists/">Artists</a></li>
+                <li><a href="/catalogue/">Catalogue</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
             <ul class="side-nav grey darken-4" id="mobile-demo">
                 <li><a href="/">Main page</a></li>
                 <!--<li><a href="#">Releases</a></li>-->
-                <!--<li><a href="#">Artists</a></li>-->
-                <!--<li><a href="#">About</a></li>-->
+                <li><a href="/artists/">Artists</a></li>
+                <li><a href="/catalogue/">Catalogue</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
         </div>

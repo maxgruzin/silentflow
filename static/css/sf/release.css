@@ -24,7 +24,9 @@
 
 .review-container{
     font-size: 1.5rem;
-    font-weight: 100;
+    font-weight: 300;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 h1 {

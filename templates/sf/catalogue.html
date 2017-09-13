@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}<title>Silent Flow catalogue</title>{% endblock %}
+{% block content %}
+
+    <!--<div class="banner-container">-->
+        <!--<h1 class="center-align">Silent Flow</h1>-->
+        <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
+    <!--</div>-->
+    {% for release in releases %}
+            <div class="center-align"><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></div>
+    {% endfor %}
+{% endblock %}
+{% block external %}
+    <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/sf/catalogue.css' %}">
+{% endblock %}
