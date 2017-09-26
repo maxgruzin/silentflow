@@ -4,7 +4,7 @@
 {% block title %}<title>{{ release.name }} [{{ release.catalogue_number }}]</title>{% endblock %}
 {% block content %}
 
-    <div class="cover-container">
+    <div class="cover-container" id="cover-container">
         {% if  release.website_image %}
         <div class="cover-background-container" style="background-image: url( '{{ MEDIA_URL }}{{ release.website_image }}');">
             <!--<div class="release-background-container_1" style="background-image: url({{ im.url }});"></div>-->
@@ -23,7 +23,16 @@
         <div class="center-align">
             <ul>
             {% for track in tracklist %}
-                <li>{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</li>
+                <li>
+                {% if track.track_mp3 %}
+                    <a href="#"><i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i></a>
+                    <a href="#" class="btn-pause hide" id="btn-pause-{{ track.id }}"><i class="material-icons">pause_circle_outline</i></a>
+                    <audio id="audio-{{ track.id }} src="{{ MEDIA_URL }}{{ track.track_mp3 }}" controls preload="metadata"></audio>
+                {% endif %}
+                <!--<i class="material-icons">play_circle_filled</i>-->
+                <!--<i class="material-icons">pause_circle_filled</i>-->
+                {{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]
+                </li>
             {% endfor %}
             </ul>
         </div>
@@ -37,5 +46,6 @@
 {% endblock %}
 {% block external %}
     <script type="text/javascript" src="{% static 'js/sf/release.js' %}"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/sf/release.css' %}">
 {% endblock %}

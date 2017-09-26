@@ -41,7 +41,7 @@ def release(request, slug):
         release_qset = Release.objects.get(is_active=True, slug=slug)
 
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
-            'pos', 'title', 'slug', 'duration'))
+            'id', 'pos', 'title', 'slug', 'duration', 'track_mp3'))
 
         return render(request, 'release.html', {'release': release_qset,
                                                 'tracklist': tracklist})

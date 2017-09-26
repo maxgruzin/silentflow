@@ -36,18 +36,11 @@ h3 {
     background-repeat: no-repeat;
 
 }
-/*.release-background-container_1 {
-    position:relative;
-    width:100%;
-    height:100%;
-    left:0;
-    top:0;
-    filter: blur(15px);
-    z-index:1;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}*/
+
+.release-background-container-first {
+    filter: none;
+}
+
 .overlay{
     position: absolute;
     width: 100%;
@@ -56,8 +49,6 @@ h3 {
     top: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.2);
-
-
 }
 
 .release-headline {
@@ -72,5 +63,10 @@ h3 {
     .release-container{
         padding-top: 220px;
         padding-bottom: 220px;
+    }
+
+    .release-container-first{
+        padding-top: 400px;
+        padding-bottom: 400px;
     }
 }

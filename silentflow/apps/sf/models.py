@@ -91,6 +91,7 @@ class Track(models.Model):
     slug = models.TextField(null=True, blank=True)
     pos = models.IntegerField()
     duration = models.TimeField()
+    track_mp3 = models.FileField(upload_to='track_mp3', null=True, blank=True)
 
     class Meta:
         managed = False

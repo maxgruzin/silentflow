@@ -1,0 +1,21 @@
+.collapsible-header {
+    border: 0;
+}
+
+.collapsible {
+    border: 0;
+    box-shadow: none;
+}
+
+.collapsible-body {
+    border: 0;
+}
+
+.collapsible-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.artist-bio {
+    font-size: 1.2rem;
+}
