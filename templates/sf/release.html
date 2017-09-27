@@ -25,9 +25,9 @@
             {% for track in tracklist %}
                 <li>
                 {% if track.track_mp3 %}
-                    <a href="#"><i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i></a>
-                    <a href="#" class="btn-pause hide" id="btn-pause-{{ track.id }}"><i class="material-icons">pause_circle_outline</i></a>
-                    <audio id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" controls preload="metadata"></audio>
+                    <!--<a href="#"><i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i></a>-->
+                    <!--<a href="#" class="btn-pause hide" id="btn-pause-{{ track.id }}"><i class="material-icons">pause_circle_outline</i></a>-->
+                    <!--<audio id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata"></audio>-->
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
