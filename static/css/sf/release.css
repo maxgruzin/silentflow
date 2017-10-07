@@ -1,6 +1,6 @@
 .cover-container {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 220px;
+    padding-bottom: 220px;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
     position: relative;
@@ -39,4 +39,12 @@ h2 {
     font-weight: 100;
     font-size: 2rem;
     margin: 0;
+}
+
+.btn-play {
+    cursor: pointer;
+}
+
+.btn-pause {
+    cursor: pointer;
 }

@@ -63,6 +63,48 @@ h3 {
     margin-bottom: 10px;
 }
 
+
+.fixed-action-btn {
+    right: auto;
+    bottom: auto;
+
+}
+
+.fixed-action-btn.horizontal {
+    padding: 15px 0 0 15px;
+
+}
+
+.fixed-action-btn.horizontal ul {
+    left: 0;
+    text-align: left;
+    padding-left: 85px;
+}
+
+.btn-floating:focus {
+    background-color: #424242;
+}
+
+.btn-floating {
+    border-radius: 0;
+    box-shadow: none;
+    width: auto;
+    background-color: transparent;
+
+}
+
+.btn-floating.btn-large {
+    width: 50px;
+    height: 50px;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.btn-floating.btn-large a{
+
+}
+
+
 .footer-copyright {
     background-color: #212121 !important;
 }

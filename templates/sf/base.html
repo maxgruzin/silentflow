@@ -21,29 +21,40 @@
     {% block extrahead %}{% endblock %}
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper grey darken-4">
-            <a href="/" class="brand-logo hide-on-med-and-down">
-                <img class="sf_navlogo" border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">
-            </a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse">
-                <img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">
-            </a>
-            <ul class="right hide-on-med-and-down">
-                <!--<li><a href="#">Releases</a></li>-->
-                <li><a href="/artists/">Artists</a></li>
-                <li><a href="/catalogue/">Catalogue</a></li>
-                <li><a href="/contact/">Contact</a></li>
-            </ul>
-            <ul class="side-nav grey darken-4" id="mobile-demo">
-                <li><a href="/">Main page</a></li>
-                <!--<li><a href="#">Releases</a></li>-->
-                <li><a href="/artists/">Artists</a></li>
-                <li><a href="/catalogue/">Catalogue</a></li>
-                <li><a href="/contact/">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!--<nav>-->
+        <!--<div class="nav-wrapper grey darken-4">-->
+            <!--<a href="/" class="brand-logo hide-on-med-and-down">-->
+                <!--<img class="sf_navlogo" border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">-->
+            <!--</a>-->
+            <!--<a href="#" data-activates="mobile-demo" class="button-collapse">-->
+                <!--<img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">-->
+            <!--</a>-->
+            <!--<ul class="right hide-on-med-and-down">-->
+                <!--&lt;!&ndash;<li><a href="#">Releases</a></li>&ndash;&gt;-->
+                <!--<li><a href="/artists/">Artists</a></li>-->
+                <!--<li><a href="/catalogue/">Catalogue</a></li>-->
+                <!--<li><a href="/contact/">Contact</a></li>-->
+            <!--</ul>-->
+            <!--<ul class="side-nav grey darken-4" id="mobile-demo">-->
+                <!--<li><a href="/">Main page</a></li>-->
+                <!--&lt;!&ndash;<li><a href="#">Releases</a></li>&ndash;&gt;-->
+                <!--<li><a href="/artists/">Artists</a></li>-->
+                <!--<li><a href="/catalogue/">Catalogue</a></li>-->
+                <!--<li><a href="/contact/">Contact</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <div class="fixed-action-btn horizontal click-to-toggle transparent">
+        <a class="btn-floating btn-large transparent">
+            <img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="50" height="50">
+        </a>
+        <ul>
+            <li><a class="btn-floating transparent" href="/" >Main</a></li>
+            <li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>
+            <li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>
+            <li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>
+        </ul>
+    </div>
 {% block content %}{% endblock %}
     <footer class="page-footer grey darken-4">
         <div class="container">

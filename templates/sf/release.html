@@ -3,7 +3,6 @@
 {% load thumbnail %}
 {% block title %}<title>{{ release.name }} [{{ release.catalogue_number }}]</title>{% endblock %}
 {% block content %}
-
     <div class="cover-container" id="cover-container">
         {% if  release.website_image %}
         <div class="cover-background-container" style="background-image: url( '{{ MEDIA_URL }}{{ release.website_image }}');">
@@ -17,7 +16,7 @@
         </div>
         {% endif %}
         <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
-
+        <div class="center-align">{{ release.released_at|date:'d M Y' }} </div>
         <div class="review-container center-align">{{ release.review }}</div>
 
         <div class="center-align">
@@ -25,9 +24,9 @@
             {% for track in tracklist %}
                 <li>
                 {% if track.track_mp3 %}
-                    <!--<a href="#"><i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i></a>-->
-                    <!--<a href="#" class="btn-pause hide" id="btn-pause-{{ track.id }}"><i class="material-icons">pause_circle_outline</i></a>-->
-                    <!--<audio id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata"></audio>-->
+                    <i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i>
+                    <i class="btn-pause hide material-icons" id="btn-pause-{{ track.id }}">pause_circle_outline</i>
+                    <audio id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata" ></audio>
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
@@ -38,7 +37,7 @@
         </div>
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
         <div class="center-align">
-            <b><a href="{{ release.download_link }}">Download release</a></b>
+            <b><a href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
         </div>
     </div>
 
