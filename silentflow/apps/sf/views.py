@@ -35,6 +35,11 @@ def catalogue(request):
         return render(request, 'catalogue.html', {'releases': releases})
 
 
+def about(request):
+
+    return render(request, 'about.html')
+
+
 def release(request, slug):
 
     if request.method == 'GET':

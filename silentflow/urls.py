@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^catalogue/', views.catalogue, name='catalogue'),
     url(r'^artists/', views.artists, name='artists'),
+    url(r'^about/', views.about, name='about'),
     url(r'^contact/', views.contact, name='contact'),
 
     # admin

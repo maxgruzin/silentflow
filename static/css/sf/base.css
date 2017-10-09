@@ -10,6 +10,7 @@ body {
 /*    display: flex;
     min-height: 100vh;
     flex-direction: column; */
+    text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
 }
 
 
@@ -72,7 +73,6 @@ h3 {
 
 .fixed-action-btn.horizontal {
     padding: 15px 0 0 15px;
-
 }
 
 .fixed-action-btn.horizontal ul {
@@ -90,7 +90,7 @@ h3 {
     box-shadow: none;
     width: auto;
     background-color: transparent;
-
+    padding: 0 5px 0 0;
 }
 
 .btn-floating.btn-large {
@@ -102,6 +102,10 @@ h3 {
 
 .btn-floating.btn-large a{
 
+}
+
+.btn-floating:hover {
+    box-shadow: none;
 }
 
 

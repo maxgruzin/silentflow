@@ -16,9 +16,8 @@
         </div>
         {% endif %}
         <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
-        <div class="center-align">{{ release.released_at|date:'d M Y' }} </div>
         <div class="review-container center-align">{{ release.review }}</div>
-
+        <!--<div class="center-align">{{ release.released_at|date:'d M Y' }}</div>-->
         <div class="center-align">
             <ul>
             {% for track in tracklist %}
