@@ -1,6 +1,35 @@
+#logo-img {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    height: auto;
+}
+
 .banner-container {
-    padding-bottom: 150px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.banner-top-spacer {
     padding-top: 150px;
+}
+
+.banner-bottom-spacer {
+    padding-top: 250px;
+}
+
+.heading-container h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    display: inline;
+}
+
+.heading-container h2 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    display: inline;
 }
 
 .release-container {
@@ -65,8 +94,21 @@ h3 {
         padding-bottom: 220px;
     }
 
-    .release-container-first{
+/*    .release-container-first{
         padding-top: 400px;
         padding-bottom: 400px;
+    }*/
+
+    .banner-top-spacer {
+        padding-top: 200px;
+    }
+
+    .banner-bottom-spacer {
+        padding-top: 200px;
+    }
+
+    #logo-img {
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 }

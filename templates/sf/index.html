@@ -3,10 +3,14 @@
 {% load thumbnail %}
 {% block title %}<title>Silent Flow Netlabel - ambient, experimental label</title>{% endblock %}
 {% block content %}
-
-    <div class="center banner-container">
-        <img src="{% static 'images/sf/silent_flow_logo.png' %}" alt="Silent Flow Logo" width="300" height="300">
+    <div class="banner-top-spacer"></div>
+    <h1 class="center banner-container">
+        <img id="logo-img" src="{% static 'images/sf/sf_logo.png' %}" alt="Silent Flow" width="700">
+    </h1>
+    <div class="center heading-container">
+        <h2>ambient, experimental, jazz label</h2>
     </div>
+    <div class="banner-bottom-spacer"></div>
     {% for release in releases %}
     {% thumbnail release.cover_image "200x75" crop="center" as im %}
     <div class="release-container">

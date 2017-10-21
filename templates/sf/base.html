@@ -49,11 +49,11 @@
             <img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="50" height="50">
         </a>
         <ul>
-            {% if request.path != "/" %}<li><a class="btn-floating transparent" href="/" >Releases</a></li>{% endif %}
+            <li><a class="btn-floating transparent" href="/" >Releases</a></li>
             <!--{% if request.path != "/catalogue/" %}<li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>{% endif %}-->
-            {% if request.path != "/artists/" %}<li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>{% endif %}
-            {% if request.path != "/about/" %}<li><a class="btn-floating transparent" href="/about/" >About</a></li>{% endif %}
-            {% if request.path != "/contact/" %}<li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>{% endif %}
+            <li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>
+            <li><a class="btn-floating transparent" href="/about/" >About</a></li>
+            <li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>
         </ul>
     </div>
 {% block content %}{% endblock %}
@@ -62,27 +62,24 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Silent Flow Label</h5>
-                    <p class="grey-text text-lighten-4">Ambient, experimental label with free digital distribution.</p>
+                    <p class="grey-text text-lighten-4">Ambient, experimental, jazz label. Free digital distribution.</p>
                 </div>
                 <div class="col l3 offset-l3 s12">
-                    <!--<h5 class="white-text">Social</h5>-->
-                    <!--<ul>-->
-                        <!--<li><a class="grey-text text-lighten-3" href="https://www.facebook.com/silentflow.netlabel/">Facebook</a></li>-->
-                        <!--<li><a class="grey-text text-lighten-3" href="https://twitter.com/SilentFlowLabel">Twitter</a></li>-->
-                        <!--<li><a class="grey-text text-lighten-3" href="https://soundcloud.com/silent-flow-netlabel">Soundcloud</a></li>-->
-                        <!--<li><a class="grey-text text-lighten-3" href="https://vk.com/silentflow">VK</a></li>-->
                     <a href="https://www.facebook.com/silentflow.netlabel/"><img src="{% static 'images/sf/facebook.png' %}" alt="facebook" width="40" height="40"></a>
                     <a href="https://twitter.com/SilentFlowLabel"><img src="{% static 'images/sf/soundcloud.png' %}" alt="soundcloud" width="40" height="40"></a>
                     <a href="https://soundcloud.com/silent-flow-netlabel"><img src="{% static 'images/sf/twitter.png' %}" alt="twitter" width="40" height="40"></a>
                     <a href="https://vk.com/silentflow"><img src="{% static 'images/sf/vk.png' %}" alt="vk" width="40" height="40"></a>
+                    <a href="https://t.me/silentflow"><img src="{% static 'images/sf/telegram.png' %}" alt="github" width="40" height="40"></a>
+                    <a href="https://www.youtube.com/channel/UCZLG1n9iogCyHEX46VTwVJg"><img src="{% static 'images/sf/youtube.png' %}" alt="youtube" width="40" height="40"></a>
+                    <a href="https://github.com/maxgruzin/silentflow"><img src="{% static 'images/sf/github.png' %}" alt="github" width="40" height="40"></a>
                     <!--</ul>-->
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
-                <a href="/">Silent Flow Netlabel</a>
-                <a class="grey-text text-lighten-4 right" href="https://creativecommons.org/">Creative Commons</a>
+                <a href="/"><img src="{% static 'images/sf/footer_logo.png' %}" alt="footer logo" height="30"></a>
+                <a class="right" href="https://creativecommons.org/"><img src="{% static 'images/sf/creative_commons_logo.png' %}" alt="footer logo" height="30"></a>
             </div>
         </div>
     </footer>
