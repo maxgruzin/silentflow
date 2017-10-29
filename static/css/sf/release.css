@@ -1,6 +1,6 @@
 .cover-container {
-    padding-top: 220px;
-    padding-bottom: 220px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     color: #fff;
 
     position: relative;
@@ -23,14 +23,14 @@
 }
 
 .review-container{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0;
 }
@@ -47,4 +47,25 @@ h2 {
 
 .btn-pause {
     cursor: pointer;
+}
+
+@media only screen and (min-width: 900px){
+
+    .cover-container {
+        padding-top: 220px;
+        padding-bottom: 220px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .review-container{
+        font-size: 1.5rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
 }

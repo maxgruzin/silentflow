@@ -6,15 +6,15 @@
 
     <div class="padding-top-100"> </div>
     <div class="row">
-        <ul class="collapsible" data-collapsible="accordion">
+        <ul class="collapsible" data-collapsible="accordion center-align">
         {% for artist in artists %}
             {% if artist.bio %}
             <li>
-                <div class="collapsible-header grey darken-4 center-align">{{ artist.name }}</div>
-                <div class="collapsible-body"><span class="artist-bio"> {{ artist.bio }}</span>
+                <div class="collapsible-header grey darken-4"><div class="row artist-header">{{ artist.name }}</div></div>
+                <div class="collapsible-body"><div class="artist-bio center-align"> {{ artist.bio }}</div>
                     {% if artist.websites %}
-                    <br><br>
-                    <div class="row center-align"><a href="{{ artist.websites.0 }}" >website</a></div>
+                    <br>
+                    <div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div>
                     {% endif %}
                 </div>
 
