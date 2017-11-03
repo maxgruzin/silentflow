@@ -26,7 +26,7 @@
         <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
         <div class="review-container center-align">{{ release.review }}</div>
         <!--<div class="center-align">{{ release.released_at|date:'d M Y' }}</div>-->
-        <div class="center-align">
+        <div class="center-align tracks_container">
             <ul>
             {% for track in tracklist %}
                 <li>
@@ -37,7 +37,7 @@
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
-                {{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]
+                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</span>
                 </li>
             {% endfor %}
             </ul>

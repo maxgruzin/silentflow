@@ -11,8 +11,13 @@ body {
     min-height: 100vh;
     flex-direction: column; */
     text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
-
+main {
+    flex: 1 0 auto;
+}
 
 .sf_navlogo {
     margin-left: 10px;

@@ -41,12 +41,21 @@ h2 {
     margin: 0;
 }
 
-.btn-play {
+.btn-pause, .btn-play {
     cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
 }
+.track{
+    display:inline-block;
+    line-height:30px;
+}
+.tracks_container > ul {
+    display: inline-block;
+    text-align: left;
+    max-width: 95%;
 
-.btn-pause {
-    cursor: pointer;
 }
 
 @media only screen and (min-width: 900px){
@@ -67,5 +76,7 @@ h2 {
         padding-left: 10px;
         padding-right: 10px;
     }
-
+    .tracks_container > ul{
+        max-width: 80%;
+    }
 }
