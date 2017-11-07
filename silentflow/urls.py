@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from silentflow.apps.sf import views
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
     url(r'^release/(?P<slug>[-\w]+)/$', views.release, name='release'),
@@ -27,4 +29,7 @@ urlpatterns = [
 
     # admin
     url(r'^control/', admin.site.urls),
+
+    # legacy release urls
+    url(r'^(?P<slug>[-\w]+)/$', RedirectView.as_view(url='/', permanent=True), name='legacy_release_url')
 ]
