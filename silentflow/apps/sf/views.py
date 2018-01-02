@@ -43,7 +43,7 @@ def about(request):
 def release(request, slug):
 
     if request.method == 'GET':
-        release_qset = Release.objects.get(is_active=True, slug=slug)
+        release_qset = Release.objects.get(slug=slug)
 
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
             'id', 'pos', 'title', 'slug', 'duration', 'track_mp3'))
