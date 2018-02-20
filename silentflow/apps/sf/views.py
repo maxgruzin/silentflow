@@ -44,12 +44,14 @@ def release(request, slug):
 
     if request.method == 'GET':
         release_qset = Release.objects.get(slug=slug)
+        tags = ReleaseTags.objects.filter(release=release_qset).values_list('tag__name', flat=True)
 
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
             'id', 'pos', 'title', 'slug', 'duration', 'track_mp3'))
 
         return render(request, 'release.html', {'release': release_qset,
-                                                'tracklist': tracklist})
+                                                'tracklist': tracklist,
+                                                'tags': tags})
 
 
 def contact(request):

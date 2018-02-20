@@ -23,9 +23,14 @@
             <!--<div class="overlay"></div>-->
         </div>
         {% endif %}
+        <!--<div class="center-align small-font">{{ release.released_at|date:'d M Y' }}</div>-->
         <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
         <div class="review-container center-align">{{ release.review }}</div>
-        <!--<div class="center-align">{{ release.released_at|date:'d M Y' }}</div>-->
+        <div class="center-align small-font">
+            {% for tag in tags %}
+                {{ tag }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
         <div class="center-align tracks_container">
             <ul>
             {% for track in tracklist %}
@@ -33,7 +38,7 @@
                 {% if track.track_mp3 %}
                     <i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i>
                     <i class="btn-pause hide material-icons" id="btn-pause-{{ track.id }}">pause_circle_outline</i>
-                    <audio id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata" ></audio>
+                    <audio class="" id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata" ></audio>
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->

@@ -7,6 +7,10 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
 
 
+class ReleaseTagsAdmin(admin.ModelAdmin):
+    list_display = ['release', 'tag']
+
+
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'bio', 'email', 'websites', 'is_active']
 
@@ -27,6 +31,6 @@ class TrackAdmin(admin.ModelAdmin):
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(Release, ReleaseAdmin)
-admin.site.register(ReleaseTags)
+admin.site.register(ReleaseTags, ReleaseTagsAdmin)
 admin.site.register(ReleaseArtists)
 admin.site.register(Track, TrackAdmin)
