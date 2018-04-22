@@ -25,7 +25,7 @@
         {% endif %}
         <!--<div class="center-align small-font">{{ release.released_at|date:'d M Y' }}</div>-->
         <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
-        <div class="review-container center-align">{{ release.review }}</div>
+        <div class="review-container center-align">{{ release.review|linebreaks }}</div>
         <div class="center-align small-font">
             {% for tag in tags %}
                 {{ tag }}{% if not forloop.last %}, {% endif %}
