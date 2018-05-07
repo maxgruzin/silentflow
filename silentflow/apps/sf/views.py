@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-# from django.http import HttpResponse
+from django.http import HttpResponseNotFound
 
 
 def index(request):
@@ -18,11 +18,12 @@ def index(request):
 def artists(request):
 
     if request.method == 'GET':
-        artists = Artist.objects.filter(is_active=True).order_by('name').values().exclude(id__in=[0, 1])
-        # for release in releases:
-        #     tracklist_values = list(Track.objects.filter(release_id=release['id']).order_by('pos').values(
-        #         'pos', 'title', 'slug', 'duration'))
-        #     release['tracks'] = tracklist_values
+        artists = Artist.objects.filter(is_active=True).order_by('name').values().exclude(id__in=[0, 1]).values()
+        for artist in artists:
+            artists_release_ids = ReleaseArtists.objects.filter(artist=artist['id']).values_list('release__id', flat=True)
+            releases = list(Release.objects.filter(id__in=artists_release_ids, is_active=True).order_by('-id').values(
+                  'catalogue_number', 'name', 'slug', 'cover_image'))
+            artist['releases'] = releases
 
         return render(request, 'artists.html', {'artists': artists})
 
@@ -43,7 +44,11 @@ def about(request):
 def release(request, slug):
 
     if request.method == 'GET':
-        release_qset = Release.objects.get(slug=slug, is_active=True)
+        release_qset = Release.objects.filter(slug=slug, is_active=True).first()
+
+        if release_qset is None:
+            return HttpResponseNotFound('<h1>Page not found</h1>')
+
         tags = ReleaseTags.objects.filter(release=release_qset).values_list('tag__name', flat=True)
 
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(

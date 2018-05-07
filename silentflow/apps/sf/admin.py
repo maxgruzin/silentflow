@@ -17,6 +17,9 @@ class ArtistAdmin(admin.ModelAdmin):
     class Meta:
         ordering = 'name'
 
+class ReleaseArtistsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'release', 'artist']
+
 
 class ReleaseAdmin(admin.ModelAdmin):
     list_display = ['id', 'catalogue_number', 'name', 'released_at', 'slug', 'is_active', 'download_link']
@@ -32,5 +35,5 @@ admin.site.register(Tag, TagAdmin)
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(Release, ReleaseAdmin)
 admin.site.register(ReleaseTags, ReleaseTagsAdmin)
-admin.site.register(ReleaseArtists)
+admin.site.register(ReleaseArtists, ReleaseArtistsAdmin)
 admin.site.register(Track, TrackAdmin)

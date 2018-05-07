@@ -28,7 +28,7 @@
         <div class="review-container center-align">{{ release.review }}</div>
         <div class="center-align small-font">
             {% for tag in tags %}
-                {{ tag }}{% if not forloop.last %}, {% endif %}
+                <div class="chip">{{ tag }}</div>
             {% endfor %}
         </div>
         <div class="center-align tracks_container">
@@ -49,7 +49,7 @@
         </div>
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
         <div class="center-align">
-            <b><a href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
+            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
         </div>
     </div>
 

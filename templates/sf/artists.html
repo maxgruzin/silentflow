@@ -19,8 +19,11 @@
                 <div class="collapsible-body"><div class="artist-bio center-align"> {{ artist.bio }}</div>
                     {% if artist.websites %}
                     <br>
-                    <div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div>
+                    <div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div><br>
                     {% endif %}
+                        {% for release in artist.releases %}
+                                <div class="center-align"><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/release/{{ release.slug }}"> [{{ release.catalogue_number }}] {{ release.name }}</a></div>
+                        {% endfor %}
                 </div>
 
             </li>

@@ -1,11 +1,11 @@
 appdirs==1.4.3
-coverage==4.4.1
-Django==1.11.3
+coverage==4.4.2
+Django==2.0.4
 olefile==0.44
 packaging==16.8
-Pillow==4.2.1
+Pillow==5.0.0
 psycopg2==2.7.1
 pyparsing==2.2.0
-pytz==2017.2
-six==1.10.0
-sorl-thumbnail==12.4a1
+pytz==2017.3
+six==1.11.0
+sorl-thumbnail==12.4.1
