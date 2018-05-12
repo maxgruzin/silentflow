@@ -1,4 +1,4 @@
-"""silentflow URL Configuration
+"""config URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from silentflow.apps.sf import views
+from sf import views
 from django.views.generic.base import RedirectView
 
 
