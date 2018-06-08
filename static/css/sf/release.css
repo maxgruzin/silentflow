@@ -44,18 +44,24 @@ h2 {
 .btn-pause, .btn-play {
     cursor: pointer;
     vertical-align: middle;
-    position: relative;
-    top: -2px;
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
 .track{
     display:inline-block;
-    line-height:30px;
+    line-height: 30px;
+    padding-left: 28px;
 }
+
 .tracks_container > ul {
     display: inline-block;
     text-align: left;
     max-width: 95%;
+}
 
+.tracks_container > ul > li {
+    position: relative;
 }
 
 @media only screen and (min-width: 900px){
