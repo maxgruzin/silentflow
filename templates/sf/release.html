@@ -38,7 +38,7 @@
                 {% if track.track_mp3 %}
                     <i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i>
                     <i class="btn-pause hide material-icons" id="btn-pause-{{ track.id }}">pause_circle_outline</i>
-                    <audio class="" id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="metadata" ></audio>
+                    <audio class="" id="audio-{{ track.id }}" src="{{ MEDIA_URL }}{{ track.track_mp3 }}" preload="none" ></audio>
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
