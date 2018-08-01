@@ -53,6 +53,28 @@
         </div>
     </div>
 
+{% if releases_by_same_artist %}
+    <div class="center-align padding-top-50 padding-bottom-50">More by this artist</div>
+    <div class="row">
+{% endif %}
+
+{% for release_by_same_artist in releases_by_same_artist %}
+
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    {% thumbnail release_by_same_artist.website_image "400x300" upscale=False as im %}
+                        <img src="{{ MEDIA_URL }}{{ im.url }}">
+                    {% endthumbnail %}
+                    <span class="card-title">{{ release_by_same_artist.name }} [{{ release_by_same_artist.catalogue_number }}]</span>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+
+{% if releases_by_same_artist %}
+    </div>
+{% endif %}
 
 {% endblock %}
 {% block external %}
