@@ -48,7 +48,7 @@ class Release(models.Model):
     cover_image = models.ImageField(upload_to='cover_image', null=True, blank=True)
     website_image = models.ImageField(upload_to='website_image', null=True, blank=True)
     download_link = models.TextField(null=True, blank=True)
-    mentions = models.TextField()
+    mentions = models.TextField(null=True, blank=True)
 
     class Meta:
         managed = False
