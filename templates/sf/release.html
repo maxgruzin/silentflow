@@ -52,7 +52,7 @@
             <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
         </div>
         <div class="center-align padding-top-50">
-            {{ release.mentions|linebreaks }}
+            {{ release.mentions|default_if_none:""|linebreaks }}
         </div>
     </div>
 
