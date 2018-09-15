@@ -16,6 +16,9 @@
     position: relative;
     z-index: 0;
     overflow: hidden;
+    -moz-box-shadow:    inset 0 5px 10px #000000;
+    -webkit-box-shadow: inset 0 5px 10px #000000;
+    box-shadow:         inset 0 5px 10px #000000;
 }
 
 .recommended-divider {

@@ -60,11 +60,12 @@
         {% for recommended_release in recommended_releases %}
         <div class="recommended-cover-container">
             {% if recommended_release.website_image %}
-            {% thumbnail recommended_release.website_image "2000x400" upscale=False as im %}
+            {% thumbnail recommended_release.website_image "2000x400" crop="center" upscale=False as im %}
                 <div class="cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
             {% endthumbnail %}
         {% endif %}
-            <div class="center-align"><h4>{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</h4></div>
+            <div class="center-align"><h4><a href="/release/{{ release.slug }}" >{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</a></h4></div>
+            <div class="center-align">{{ recommended_release.headline }}</div>
         </div>
         {% endfor %}
 
