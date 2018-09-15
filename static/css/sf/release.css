@@ -1,12 +1,18 @@
 .cover-container {
     padding-top: 100px;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     color: #fff;
 
     position: relative;
     z-index: 0;
     overflow: hidden;
     /* background-color: #000; */
+}
+
+.release-date {
+    padding-top: 90px;
+    padding-right: 5px;
+    font-size: 0.65rem;
 }
 
 .recommended-cover-container {
@@ -69,7 +75,8 @@ h2 {
     margin: 0;
 }
 
-h4 {
+.recommended-title {
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -100,13 +107,21 @@ h4 {
 
     .cover-container {
         padding-top: 220px;
-        padding-bottom: 220px;
+        /*padding-bottom: 220px;*/
+    }
+
+    .release-date {
+        padding-top: 210px;
     }
 
     h1 {
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 0;
+    }
+
+    .recommended-title {
+        font-size: 1.6rem;
     }
 
     .review-container{

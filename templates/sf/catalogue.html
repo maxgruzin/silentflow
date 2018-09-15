@@ -9,9 +9,22 @@
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
     <!--</div>-->
     <div class="padding-top-100"></div>
+    <div class="row">
     {% for release in releases %}
-            <div class="center-align"><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></div>
+        <div class="col s12 m6">
+        <div class="card">
+        <div class="card-image">
+            {% thumbnail release.website_image "300x300" as im %}
+                <img src="{{ im.url }}">
+            {% endthumbnail %}
+
+            <span class="card-title"><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></span>
+        </div>
+        </div>
+        </div>
+        <!-- <div class="center-align"></div> -->
     {% endfor %}
+    </div>
 {% endblock %}
 {% block external %}
     <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}"></script>

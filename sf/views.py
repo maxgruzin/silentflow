@@ -31,7 +31,7 @@ def artists(request):
 def catalogue(request):
 
     if request.method == 'GET':
-        releases = Release.objects.filter(is_active=True).order_by('-released_at').values('catalogue_number', 'name', 'slug')
+        releases = Release.objects.filter(is_active=True).order_by('-released_at')
 
         return render(request, 'catalogue.html', {'releases': releases})
 

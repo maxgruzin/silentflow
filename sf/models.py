@@ -25,6 +25,7 @@ class Artist(models.Model):
     email = models.TextField(null=True, blank=True)
     websites = ArrayField(models.TextField(null=True, blank=True))
     is_active = models.BooleanField()
+    country = models.TextField(null=True, blank=True)
 
     class Meta:
         managed = False
