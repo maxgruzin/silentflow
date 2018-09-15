@@ -54,9 +54,14 @@ def release(request, slug):
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
             'id', 'pos', 'title', 'slug', 'duration', 'track_mp3'))
 
+        release_artitst_ids = ReleaseArtists.objects.filter(release=release_qset).values_list('artist', flat=True)
+        recommended_release_ids = ReleaseArtists.objects.filter(artist__in=release_artitst_ids).exclude(release=release_qset).values_list('release', flat=True)
+        recommended_releases = Release.objects.filter(id__in=recommended_release_ids)
+
         return render(request, 'release.html', {'release': release_qset,
                                                 'tracklist': tracklist,
-                                                'tags': tags})
+                                                'tags': tags,
+                                                'recommended_releases': recommended_releases})
 
 
 def contact(request):

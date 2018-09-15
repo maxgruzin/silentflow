@@ -55,6 +55,21 @@
             {{ release.mentions|default_if_none:""|linebreaks }}
         </div>
     </div>
+    {% if recommended_releases %}
+    <div class="center-align recommended-divider" >Recommended</div>
+        {% for recommended_release in recommended_releases %}
+        <div class="recommended-cover-container">
+            {% if recommended_release.website_image %}
+            {% thumbnail recommended_release.website_image "2000x400" upscale=False as im %}
+                <div class="cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
+            {% endthumbnail %}
+        {% endif %}
+            <div class="center-align"><h4>{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</h4></div>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+
 
 
 {% endblock %}
