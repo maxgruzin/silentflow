@@ -16,7 +16,26 @@ main {
     flex: 1 0 auto;
 }
 
-.sf_navlogo {
+.dark-gray-1 {
+    background-color: #121212;
+}
+
+.dark-gray-2 {
+    background-color: #1c1c1c;
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 70px;
+    line-height: 70px;
+}
+
+nav ul a {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.sf-navlogo {
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -30,7 +49,8 @@ main {
 
 .brand-logo {
     height: 64px;
-    padding-right: 10px !important;
+    padding-right: 40px !important;
+    position: relative !important;
 }
 
 nav {
@@ -83,6 +103,7 @@ h4 {
     text-align: left;
     padding-left: 85px;
 }
+
 
 .btn-floating:focus {
     background-color: #424242;
@@ -141,7 +162,6 @@ h4 {
     height: 12px;
     box-shadow: 1px 1px 3px rgba(50, 50, 50, 0.5);
 }
-
 
 .download-button {
     display:inline-block;
