@@ -44,15 +44,6 @@
     background-color: #000;
 }
 
-.release-text-container {
-    position: relative;
-    z-index: 1;
-}
-
-h3 {
-    font-weight: 700;
-}
-
 .release-background-container {
     position: absolute;
     width: calc(100% + 40px);
@@ -64,15 +55,55 @@ h3 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-
 }
 
 .release-background-container-first {
     filter: none;
 }
 
-.overlay{
+.release-text-container {
+    position: relative;
+    z-index: 1;
+}
+
+.rel-container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(50, 50, 50, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.rel-text-container {
+    position: relative;
+    z-index: 1;
+}
+
+.rel-background-container {
+    position: absolute;
+    width: calc(100% + 40px);
+    /*height: calc(100% + 40px);
+    left: -20px; */
+    top: 0;
+    bottom: 0;
+    /*filter: blur(15px); */
+    z-index: 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /*transform: translateZ(-1px);*/
+}
+
+h3 {
+    font-weight: 700;
+}
+
+.overlay {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -90,16 +121,39 @@ h3 {
     color: #fff;
 }
 
-@media only screen and (min-width: 900px){
+.full-catalogue {
+    display: inline-block;
+    padding: 0.2em 1em;
+    border: 1px solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+    box-shadow: 1px 2px 2px 2px rgba(50, 50, 50, 0.2)
+}
+
+.full-catalogue:hover {
+    color: #212121!important;
+    background-color: #ffffff;
+    text-decoration: none!important;
+    text-shadow: none;
+}
+
+@media only screen and (min-width: 900px) {
     .release-container{
         padding-top: 220px;
         padding-bottom: 220px;
     }
 
-/*    .release-container-first{
-        padding-top: 400px;
-        padding-bottom: 400px;
-    }*/
+    .rel-container {
+    padding-top: 240px;
+    padding-bottom: 240px;
+    }
 
     .banner-top-spacer {
         padding-top: 200px;

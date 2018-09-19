@@ -16,18 +16,35 @@
         <h2>ambient, experimental, jazz label</h2>
     </div>
     <div class="banner-bottom-spacer"></div>
+    {# {% for release in releases %} #}
+    {# {% thumbnail release.cover_image "200x75" crop="center" as im %} #}
+    {# <div class="col l6 s12 release-container"> #}
+    {#    <div class="release-background-container" style="background-image: url({{ im.url }});"></div> #}
+    {# {% endthumbnail %} #}
+    {#    <div class="release-text-container center-align row"> #}
+    {#        <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3> #}
+    {#        <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div> #}
+        <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
+    {#    </div> #}
+    {# </div> #}
+    {# {% endfor %} #}
+
     {% for release in releases %}
-    {% thumbnail release.cover_image "200x75" crop="center" as im %}
-    <div class="col l6 s12 release-container">
-        <div class="release-background-container" style="background-image: url({{ im.url }});"></div>
+    {% thumbnail release.cover_image "2000x1500" quality=75 crop="center" as im %}
+    <div class="rel-container">
+        <div class="rel-background-container" style="background-image: url({{ MEDIA_URL }}{{ release.website_image }});"></div>
     {% endthumbnail %}
-        <div class="release-text-container center-align row">
+        <div class="rel-text-container center-align row">
             <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
-            <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div>
+            <div class="rel-headline">{{ release.headline }}</div>
         <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
         </div>
     </div>
     {% endfor %}
+
+    <div class="center-align padding-top-50 padding-bottom-50">
+        <a class="full-catalogue" href="{% url 'catalogue' %}">Full catalogue</a>
+    </div>
 {% endblock %}
 {% block external %}
     <script type="text/javascript" src="{% static 'js/sf/index.js' %}"></script>

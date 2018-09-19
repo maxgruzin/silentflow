@@ -26,17 +26,23 @@
     margin-bottom: 0;
 }
 
-.card .card-content .card-title
-{
+.card .card-content .card-title{
 
 
 }
 
-.card .card-content
-{
+.card .card-content{
     font-size: 0.8rem;
     line-height: 1rem;
     padding: 10px;
-    height: 300px;
-    overflow-y: auto;
+
+}
+
+@media only screen and (min-width: 600px){
+
+    .card .card-content {
+        height: 300px;
+        overflow-y: auto;
+    }
+
 }
