@@ -32,7 +32,7 @@
     {% for release in releases %}
     {% thumbnail release.cover_image "2000x1500" quality=75 crop="center" as im %}
     <div class="rel-container">
-        <div class="rel-background-container" style="background-image: url({{ MEDIA_URL }}{{ release.website_image }});"></div>
+        <div class="rel-background-container" style="background-image: url({{ im.url }});"></div>
     {% endthumbnail %}
         <div class="rel-text-container center-align row">
             <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
