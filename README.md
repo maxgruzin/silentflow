@@ -1,3 +1,3 @@
 # silentflow
 
-Silent Flow Netlabel site proj
+Silent Flow Label website written in Django
