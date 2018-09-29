@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load thumbnail %}
+{% load template_tags %}
 {% block title %}<title>{{ release.name }} [{{ release.catalogue_number }}]</title>{% endblock %}
 {% block description %}
     <meta name="description"
@@ -42,7 +43,7 @@
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
-                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s" }}]</span>
+                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|duration_format }}]</span>
                 </li>
             {% endfor %}
             </ul>

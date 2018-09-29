@@ -49,6 +49,9 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
             ],
+            # 'libraries':{
+            #     'template_tags': 'sf.template_tags',
+            # }
         },
     },
 ]
