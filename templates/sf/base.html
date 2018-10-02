@@ -64,10 +64,10 @@
             <img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="50" height="50">
         </a>
         <ul>
-            <li><a class="btn-floating transparent" href="/" >Main</a></li>
-            <li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>
-            <li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>
             <li><a class="btn-floating transparent" href="/about/" >Label</a></li>
+            <li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>
+            <li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>
+            <li><a class="btn-floating transparent" href="/" >Main</a></li>
             <!--<li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>-->
         </ul>
     </div>
@@ -94,9 +94,13 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <div class="container">
-                <a href="/"><img src="{% static 'images/sf/footer_logo.png' %}" alt="footer logo" height="30"></a>
-                <a class="right" href="https://creativecommons.org/"><img src="{% static 'images/sf/creative_commons_logo.png' %}" alt="footer logo" height="30"></a>
+            <div class="container row">
+                <div class="col s6">
+                    <a href="/"><img src="{% static 'images/sf/footer_logo.png' %}" alt="footer logo" height="30"></a>
+                </div>
+                <div class="col s6">
+                    <a class="right" href="https://creativecommons.org/"><img src="{% static 'images/sf/creative_commons_logo.png' %}" alt="footer logo" height="30"></a>
+                </div>
             </div>
         </div>
     </footer>
@@ -111,12 +115,15 @@
       ga('send', 'pageview');
     </script>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
 
     <script type="text/javascript" src="{% static 'js/sf/base.js' %}"></script>
     <link rel="stylesheet" href="{% static '/css/sf/base.css' %}">
