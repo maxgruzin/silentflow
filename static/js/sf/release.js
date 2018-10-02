@@ -1,4 +1,10 @@
 window.onload = function(){
+
+    var elems = document.querySelectorAll('.share_buttons_container.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+        direction: 'left',
+        hoverEnabled: false
+    });
     //player
 
     // associate functions with the 'onclick' events

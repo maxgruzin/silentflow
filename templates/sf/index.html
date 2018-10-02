@@ -47,6 +47,6 @@
     </div>
 {% endblock %}
 {% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/index.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/sf/index.css' %}">
+    <script type="text/javascript" src="{% static 'js/sf/index.js' %}?v={{ version }}"></script>
+    <link rel="stylesheet" href="{% static 'css/sf/index.css' %}?v={{ version }}">
 {% endblock %}
