@@ -3,13 +3,13 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     height: auto;
 }
 
 .banner-container {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     font-size: 10px;
 }
 
@@ -75,7 +75,7 @@
     z-index: 1;
     overflow: hidden;
     background-color: #000;
-    box-shadow: 10px 0px -10px 5px rgba(0, 0, 0, 1)
+    box-shadow: 10px 0 -10px 5px rgba(0, 0, 0, 1)
 }
 
 .rel-text-container {
@@ -165,7 +165,7 @@ h3 {
     }
 
     #logo-img {
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
