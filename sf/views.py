@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseNotFound
 
+from config import __version__
+
+
 
 def index(request):
 
@@ -12,7 +15,8 @@ def index(request):
         #         'pos', 'title', 'slug', 'duration'))
         #     release['tracks'] = tracklist_values
 
-        return render(request, 'index.html', {'releases': releases})
+        return render(request, 'index.html', {'releases': releases,
+                                              'version': __version__})
 
 
 def artists(request):
@@ -25,7 +29,8 @@ def artists(request):
                   'catalogue_number', 'name', 'slug', 'cover_image'))
             artist['releases'] = releases
 
-        return render(request, 'artists.html', {'artists': artists})
+        return render(request, 'artists.html', {'artists': artists,
+                                                'version': __version__})
 
 
 def catalogue(request):
@@ -33,12 +38,13 @@ def catalogue(request):
     if request.method == 'GET':
         releases = Release.objects.filter(is_active=True).order_by('-released_at')
 
-        return render(request, 'catalogue.html', {'releases': releases})
+        return render(request, 'catalogue.html', {'releases': releases,
+                                                  'version': __version__})
 
 
 def about(request):
 
-    return render(request, 'about.html')
+    return render(request, 'about.html',{'version': __version__})
 
 
 def release(request, slug):
@@ -61,9 +67,10 @@ def release(request, slug):
         return render(request, 'release.html', {'release': release_qset,
                                                 'tracklist': tracklist,
                                                 'tags': tags,
-                                                'recommended_releases': recommended_releases})
+                                                'recommended_releases': recommended_releases,
+                                                'version': __version__})
 
 
 def contact(request):
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html',{'version': __version__})

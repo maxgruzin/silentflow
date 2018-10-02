@@ -58,6 +58,6 @@
 
 {% endblock %}
 {% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/artists.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/sf/artists.css' %}">
+    <script type="text/javascript" src="{% static 'js/sf/artists.js' %}?v={{ version }}"></script>
+    <link rel="stylesheet" href="{% static 'css/sf/artists.css' %}?v={{ version }}">
 {% endblock %}

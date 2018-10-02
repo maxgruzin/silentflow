@@ -83,7 +83,7 @@
 
 {% endblock %}
 {% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/release.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sf/release.js' %}?v={{ version }}"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/sf/release.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sf/release.css' %}?v={{ version }}">
 {% endblock %}
