@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load thumbnail %}
+{% load template_tags %}
 {% block title %}<title>{{ release.name }} [{{ release.catalogue_number }}]</title>{% endblock %}
 {% block description %}
     <meta name="description"
@@ -42,7 +43,7 @@
                 {% endif %}
                 <!--<i class="material-icons">play_circle_filled</i>-->
                 <!--<i class="material-icons">pause_circle_filled</i>-->
-                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|date:"i:s"}}]</span>
+                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|duration_format }}]</span>
                 </li>
             {% endfor %}
             </ul>
@@ -51,6 +52,10 @@
         <div class="center-align">
             <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
         </div>
+        <div class="center-align padding-top-50">
+            {{ release.mentions|default_if_none:""|linebreaks }}
+        </div>
+        <div class="right-align release-date">{{release.released_at|date:"d M Y"}}</div>
     </div>
 
 {% if releases_by_same_artist %}
@@ -75,6 +80,28 @@
 {% if releases_by_same_artist %}
     </div>
 {% endif %}
+
+    {% if recommended_releases %}
+    <div class="center-align recommended-divider" >Recommended</div>
+        {% for recommended_release in recommended_releases %}
+        <div class="recommended-cover-container">
+        {% if recommended_release.website_image %}
+            {% thumbnail recommended_release.website_image "2000x300" crop="center" quality=75 as im %}
+                <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
+            {% endthumbnail %}
+        {% else %}
+            {% thumbnail recommended_release.cover_image "2000x300" crop="center" quality=75 as im %}
+                <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
+            {% endthumbnail %}
+        {% endif %}
+            <div class="center-align"><a class="recommended-title" href="/release/{{ recommended_release.slug }}" >{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</a></h4></div>
+            <div class="center-align">{{ recommended_release.headline }}</div>
+        </div>
+        {% endfor %}
+
+    {% endif %}
+
+
 
 {% endblock %}
 {% block external %}

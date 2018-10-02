@@ -9,27 +9,50 @@
 {% endblock %}
 {% block content %}
 
-    <div class="padding-top-100"> </div>
-    <div class="row">
-        <ul class="collapsible" data-collapsible="accordion center-align">
-        {% for artist in artists %}
-            {% if artist.bio %}
-            <li>
-                <div class="collapsible-header grey darken-4"><div class="row artist-header">{{ artist.name }}</div></div>
-                <div class="collapsible-body"><div class="artist-bio center-align"> {{ artist.bio }}</div>
-                    {% if artist.websites %}
-                    <br>
-                    <div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div><br>
-                    {% endif %}
-                        {% for release in artist.releases %}
-                                <div class="center-align"><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/release/{{ release.slug }}"> [{{ release.catalogue_number }}] {{ release.name }}</a></div>
-                        {% endfor %}
-                </div>
+    <!--<div class="padding-top-100"> </div>-->
+    <!--<div class="row">-->
+        <!--<ul class="collapsible" data-collapsible="accordion center-align">-->
+        <!--{% for artist in artists %}-->
+            <!--{% if artist.bio %}-->
+            <!--<li>-->
+                <!--<div class="collapsible-header grey darken-4"><div class="row artist-header">{{ artist.name }}</div></div>-->
+                <!--<div class="collapsible-body"><div class="artist-bio center-align"> {{ artist.bio }}</div>-->
+                    <!--{% if artist.websites %}-->
+                    <!--<br>-->
+                    <!--<div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div><br>-->
+                    <!--{% endif %}-->
+                        <!--{% for release in artist.releases %}-->
+                                <!--<div class="center-align"><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/release/{{ release.slug }}"> [{{ release.catalogue_number }}] {{ release.name }}</a></div>-->
+                        <!--{% endfor %}-->
+                <!--</div>-->
 
-            </li>
-            {% endif %}
-        {% endfor %}
-        </ul>
+            <!--</li>-->
+            <!--{% endif %}-->
+        <!--{% endfor %}-->
+        <!--</ul>-->
+    <!--</div>-->
+
+
+    <div class="padding-top-80"></div>
+    <div class="row">
+    {% for artist in artists %}{% if artist.bio %}
+        <div class="col s12 m6 l3">
+        <div class="card dark-gray-1">
+        <div class="card-content white-text">
+            <span class="card-title dark-gray-1">{{ artist.name }}</span>
+            {{ artist.bio }}
+            {% if artist.websites %}<br><br><span><a href="{{ artist.websites.0 }}" ><b>website</b></a></span>{% endif %}<br><br>
+            {% for release in artist.releases %}
+                <div><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/release/{{ release.slug }}"><b>[{{ release.catalogue_number }}] {{ release.name }}</b></a></div>
+            {% endfor %}
+
+        </div>
+        </a>
+        </div>
+
+        </div>
+        <!-- <div class="center-align"></div> -->
+    {% endif %}{% endfor %}
     </div>
 
 

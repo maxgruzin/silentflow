@@ -1,6 +1,6 @@
 .cover-container {
     padding-top: 100px;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     color: #fff;
 
     position: relative;
@@ -9,17 +9,51 @@
     /* background-color: #000; */
 }
 
+.release-date {
+    padding-top: 90px;
+    padding-right: 5px;
+    font-size: 0.65rem;
+}
+
+.recommended-cover-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #fff;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.recommended-divider {
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
 .cover-background-container {
     position: absolute;
     width: calc(100% + 40px);
     height: calc(100% + 40px);
-    /* left: -20px; */
     top: 0;
-    /* filter: blur(15px); */
     z-index: -1;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.recommended-cover-background-container{
+    position: absolute;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    top: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-box-shadow:    inset 0 5px 8px rgba(0,0,0,0.7);
+    -webkit-box-shadow: inset 0 5px 8px rgba(0,0,0,0.7);
+    box-shadow:         inset 0 5px 8px rgba(0,0,0,0.7);
 }
 
 .review-container{
@@ -39,6 +73,11 @@ h2 {
     font-weight: 100;
     font-size: 2rem;
     margin: 0;
+}
+
+.recommended-title {
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .btn-pause, .btn-play {
@@ -68,13 +107,21 @@ h2 {
 
     .cover-container {
         padding-top: 220px;
-        padding-bottom: 220px;
+        /*padding-bottom: 220px;*/
+    }
+
+    .release-date {
+        padding-top: 210px;
     }
 
     h1 {
         font-size: 3.5rem;
         font-weight: 700;
         margin-bottom: 0;
+    }
+
+    .recommended-title {
+        font-size: 1.6rem;
     }
 
     .review-container{

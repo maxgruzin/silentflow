@@ -8,10 +8,27 @@
         <!--<h1 class="center-align">Silent Flow</h1>-->
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
     <!--</div>-->
-    <div class="padding-top-100"></div>
+    <div class="padding-top-80"></div>
+    <div class="row">
     {% for release in releases %}
-            <div class="center-align"><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></div>
+        <div class="col s12 m4 l2">
+        <div class="card dark-gray-2">
+        <a href="/release/{{ release.slug }}" >
+        <div class="card-image">
+            {% thumbnail release.cover_image "300x300" crop="center" quality=75 as im %}
+                <img src="{{ im.url }}">
+            {% endthumbnail %}
+        </div>
+        <div class="card-content white-text dark-gray-1">
+            <span class="card-title">{{ release.name }} [{{ release.catalogue_number }}]</span>
+        </div>
+        </a>
+        </div>
+
+        </div>
+        <!-- <div class="center-align"></div> -->
     {% endfor %}
+    </div>
 {% endblock %}
 {% block external %}
     <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}"></script>

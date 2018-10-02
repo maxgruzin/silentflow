@@ -1,0 +1,12 @@
+
+.card .card-content .card-title
+{
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+.card .card-content
+{
+    padding: 10px;
+    height: 60px;
+}

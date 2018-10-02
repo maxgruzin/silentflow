@@ -23,24 +23,25 @@
 <body>
 <main>
     <!--<nav>-->
-        <!--<div class="nav-wrapper grey darken-4">-->
-            <!--<a href="/" class="brand-logo hide-on-med-and-down">-->
-                <!--<img class="sf_navlogo" border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">-->
+        <!--<div class="nav-wrapper dark-gray-1 ">-->
+            <!--<a href="/" class="left brand-logo hide-on-med-and-down">-->
+                <!--<img class="sf-navlogo" border="0" alt="silentflow_logo" src="{% static 'images/sf/footer_logo.png' %}" width="258" height="50">-->
             <!--</a>-->
             <!--<a href="#" data-activates="mobile-demo" class="button-collapse">-->
-                <!--<img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="40" height="40">-->
+                <!--<img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="50" height="50">-->
             <!--</a>-->
-            <!--<ul class="right hide-on-med-and-down">-->
-                <!--&lt;!&ndash;<li><a href="#">Releases</a></li>&ndash;&gt;-->
+            <!--<ul class="left hide-on-med-and-down">-->
+                <!--&lt;!&ndash;<li><a href="/">Main</a></li>&ndash;&gt;-->
+                <!--<li><a href="/catalogue/">Releases</a></li>-->
                 <!--<li><a href="/artists/">Artists</a></li>-->
-                <!--<li><a href="/catalogue/">Catalogue</a></li>-->
+                <!--<li><a href="/about/">About</a></li>-->
                 <!--<li><a href="/contact/">Contact</a></li>-->
             <!--</ul>-->
             <!--<ul class="side-nav grey darken-4" id="mobile-demo">-->
-                <!--<li><a href="/">Main page</a></li>-->
-                <!--&lt;!&ndash;<li><a href="#">Releases</a></li>&ndash;&gt;-->
+                <!--<li><a href="/">Main</a></li>-->
+                <!--<li><a href="/catalogue/">Releases</a></li>-->
                 <!--<li><a href="/artists/">Artists</a></li>-->
-                <!--<li><a href="/catalogue/">Catalogue</a></li>-->
+                <!--<li><a href="/about/">About</a></li>-->
                 <!--<li><a href="/contact/">Contact</a></li>-->
             <!--</ul>-->
         <!--</div>-->
@@ -50,11 +51,11 @@
             <img border="0" alt="silentflow_logo" src="{% static 'images/sf/logo.png' %}" width="50" height="50">
         </a>
         <ul>
-            <li><a class="btn-floating transparent" href="/" >Releases</a></li>
-            <!--{% if request.path != "/catalogue/" %}<li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>{% endif %}-->
+            <li><a class="btn-floating transparent" href="/" >Main</a></li>
+            <li><a class="btn-floating transparent" href="/catalogue/" >Releases</a></li>
             <li><a class="btn-floating transparent" href="/artists/" >Artists</a></li>
-            <li><a class="btn-floating transparent" href="/about/" >About</a></li>
-            <li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>
+            <li><a class="btn-floating transparent" href="/about/" >Label</a></li>
+            <!--<li><a class="btn-floating transparent" href="/contact/" >Contact</a></li>-->
         </ul>
     </div>
 {% block content %}{% endblock %}
@@ -98,6 +99,7 @@
     </script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
