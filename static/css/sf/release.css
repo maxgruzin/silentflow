@@ -112,6 +112,9 @@ h2 {
 .share_buttons{
     right: 43px!important;
 }
+.share_buttons li{
+    margin: 0!important;
+}
 
 .share_toggle_button img {
     vertical-align: middle;
@@ -121,6 +124,13 @@ h2 {
     position: relative;
     top: -2px;
     left: -2px;
+}
+.share_buttons .btn-floating{
+    padding: 0 10px;
+    margin-top: 5px;
+}
+.share_buttons .btn-floating:hover{
+    background-color: #424242;
 }
 
 .share_buttons img {
