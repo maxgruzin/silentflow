@@ -198,3 +198,13 @@ h4 {
     /*padding: 0.4em 1.3em;*/
 }
 
+main .fixed-action-btn.horizontal ul li {
+    display: inline-block;
+    margin: 15px 15px 0 0;
+}
+main .fixed-action-btn.horizontal ul li a{
+    font-size: 15px;
+}
+.footer-copyright .container{
+    margin-bottom: 0;
+}
