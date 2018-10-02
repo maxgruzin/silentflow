@@ -2,17 +2,21 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseNotFound
 
+from config import __version__
+
+
 
 def index(request):
 
     if request.method == 'GET':
-        releases = Release.objects.filter(is_active=True).order_by('-released_at').values()
+        releases = Release.objects.filter(is_active=True).order_by('-released_at').values()[0:15]
         # for release in releases:
         #     tracklist_values = list(Track.objects.filter(release_id=release['id']).order_by('pos').values(
         #         'pos', 'title', 'slug', 'duration'))
         #     release['tracks'] = tracklist_values
 
-        return render(request, 'index.html', {'releases': releases})
+        return render(request, 'index.html', {'releases': releases,
+                                              'version': __version__})
 
 
 def artists(request):
@@ -25,20 +29,22 @@ def artists(request):
                   'catalogue_number', 'name', 'slug', 'cover_image'))
             artist['releases'] = releases
 
-        return render(request, 'artists.html', {'artists': artists})
+        return render(request, 'artists.html', {'artists': artists,
+                                                'version': __version__})
 
 
 def catalogue(request):
 
     if request.method == 'GET':
-        releases = Release.objects.filter(is_active=True).order_by('-released_at').values('catalogue_number', 'name', 'slug')
+        releases = Release.objects.filter(is_active=True).order_by('-released_at')
 
-        return render(request, 'catalogue.html', {'releases': releases})
+        return render(request, 'catalogue.html', {'releases': releases,
+                                                  'version': __version__})
 
 
 def about(request):
 
-    return render(request, 'about.html')
+    return render(request, 'about.html',{'version': __version__})
 
 
 def release(request, slug):
@@ -53,15 +59,18 @@ def release(request, slug):
 
         tracklist = list(Track.objects.filter(release_id=release_qset).order_by('pos').values(
             'id', 'pos', 'title', 'slug', 'duration', 'track_mp3'))
-        artists_ids = ReleaseArtists.objects.filter(release_id=release_qset).values_list('artist_id', flat=True)
-        releases_by_same_artist = Release.objects.filter(is_active=True, id__in=ReleaseArtists.objects.filter(artist__id__in=artists_ids).exclude(artist__id__in=[0, 1]).exclude(release_id=release_qset).values_list('release_id', flat=True))
+
+        release_artitst_ids = ReleaseArtists.objects.filter(release=release_qset).values_list('artist', flat=True)
+        recommended_release_ids = ReleaseArtists.objects.filter(artist__in=release_artitst_ids).exclude(release=release_qset).values_list('release', flat=True)
+        recommended_releases = Release.objects.filter(id__in=recommended_release_ids)
 
         return render(request, 'release.html', {'release': release_qset,
                                                 'tracklist': tracklist,
                                                 'tags': tags,
-                                                'releases_by_same_artist': releases_by_same_artist})
+                                                'recommended_releases': recommended_releases,
+                                                'version': __version__})
 
 
 def contact(request):
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html',{'version': __version__})

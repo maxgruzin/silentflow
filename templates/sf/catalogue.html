@@ -31,6 +31,6 @@
     </div>
 {% endblock %}
 {% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/sf/catalogue.css' %}">
+    <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}?v={{ version }}"></script>
+    <link rel="stylesheet" href="{% static 'css/sf/catalogue.css' %}?v={{ version }}">
 {% endblock %}
