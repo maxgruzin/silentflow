@@ -94,11 +94,11 @@ h4 {
     bottom: auto;
 }
 
-.fixed-action-btn.horizontal {
+.menu_button.fixed-action-btn.horizontal {
     padding: 15px 0 0 15px;
 }
 
-.fixed-action-btn.horizontal ul {
+.menu_button.fixed-action-btn.horizontal ul {
     left: 0;
     text-align: left;
     padding-left: 85px;
@@ -198,11 +198,11 @@ h4 {
     /*padding: 0.4em 1.3em;*/
 }
 
-main .fixed-action-btn.horizontal ul li {
+.menu_button.fixed-action-btn.horizontal ul li {
     display: inline-block;
     margin: 15px 15px 0 0;
 }
-main .fixed-action-btn.horizontal ul li a{
+.menu_button .fixed-action-btn.horizontal ul li a{
     font-size: 15px;
 }
 .footer-copyright .container{

@@ -103,6 +103,31 @@ h2 {
     position: relative;
 }
 
+.share_buttons_container{
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+}
+
+.share_buttons{
+    right: 43px!important;
+}
+
+.share_toggle_button img {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    max-height: none;
+    position: relative;
+    top: -2px;
+    left: -2px;
+}
+
+.share_buttons img {
+    vertical-align: middle;
+    max-height: 20px;
+}
+
 @media only screen and (min-width: 900px){
 
     .cover-container {
