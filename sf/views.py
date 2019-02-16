@@ -44,7 +44,7 @@ def catalogue(request):
 
 def about(request):
 
-    return render(request, 'about.html',{'version': __version__})
+    return render(request, 'about.html', {'version': __version__})
 
 
 def release(request, slug):
@@ -73,4 +73,4 @@ def release(request, slug):
 
 def contact(request):
 
-    return render(request, 'contact.html',{'version': __version__})
+    return render(request, 'contact.html', {'version': __version__})
