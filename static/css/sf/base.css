@@ -161,6 +161,10 @@ h4 {
     padding-bottom: 50px;
 }
 
+.padding-bottom-30 {
+    padding-bottom: 30px;
+}
+
 .small-font {
     font-size: 0.875rem;
 }
@@ -186,7 +190,7 @@ h4 {
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
-    font-weight:300;
+    font-weight: 700;
     color:#FFFFFF;
     text-align:center;
     transition: all 0.2s;
