@@ -10,3 +10,22 @@
     padding: 10px;
     height: 60px;
 }
+#search_release{
+    /*max-width: 300px;*/
+}
+#search_release,
+#search_release + label,
+.input-field .select-dropdown{
+    color: #fff;
+    text-shadow: none;
+}
+#search_release:focus,
+.input-field .select-dropdown:focus{
+    border-bottom: #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-box-shadow: 0 1px 0 0 #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+.select-wrapper .caret{
+    fill: rgba(255,255,255,0.87);
+}
