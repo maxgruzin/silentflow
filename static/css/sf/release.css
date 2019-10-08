@@ -16,19 +16,22 @@
 }
 
 .recommended-cover-container {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    /*padding-top: 100px;
+    padding-bottom: 100px;*/
     color: #fff;
     position: relative;
     z-index: 0;
     overflow: hidden;
+    height: 300px;
+    padding: 50px 0px 5px 0px !important;
+    text-align: center
 }
 
 .recommended-divider {
     font-size: 1.4rem;
     font-weight: 700;
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 0px;
 }
 
 .cover-background-container {
@@ -44,8 +47,8 @@
 
 .recommended-cover-background-container{
     position: absolute;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
+    width: calc(100% + 0px);
+    height: calc(100% + 0px);
     top: 0;
     z-index: -1;
     background-size: cover;
@@ -73,6 +76,10 @@ h2 {
     font-weight: 100;
     font-size: 2rem;
     margin: 0;
+}
+
+.recommended-text {
+    padding: 0 5px;
 }
 
 .recommended-title {
@@ -155,14 +162,10 @@ h2 {
         margin-bottom: 0;
     }
 
-    .recommended-title {
-        font-size: 1.6rem;
-    }
-
     .review-container{
         font-size: 1.5rem;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
     .tracks_container > ul{
         max-width: 80%;

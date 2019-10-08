@@ -1,3 +1,3 @@
 # silentflow
 
-Silent Flow Label website written in Django
+Silent Flow Label website written in Python (Django)

@@ -1,5 +1,5 @@
 html {
-    font-family: Archivo;
+    font-family: Archivo, Arial, Helvetica, sans-serif;
   }
 
 body {
@@ -137,6 +137,13 @@ h4 {
     background-color: #212121 !important;
 }
 
+.padding-top-50 {
+    padding-top: 50px;
+}
+
+.padding-bottom-50 {
+    padding-bottom: 50px;
+}
 
 .padding-top-100 {
     padding-top: 100px;
@@ -152,6 +159,10 @@ h4 {
 
 .padding-bottom-50 {
     padding-bottom: 50px;
+}
+
+.padding-bottom-30 {
+    padding-bottom: 30px;
 }
 
 .small-font {
@@ -179,7 +190,7 @@ h4 {
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
-    font-weight:300;
+    font-weight: 700;
     color:#FFFFFF;
     text-align:center;
     transition: all 0.2s;

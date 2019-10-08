@@ -57,39 +57,66 @@
         </div>
         <div class="right-align release-date">{{release.released_at|date:"d M Y"}}</div>
 
-        <div class="share_buttons_container fixed-action-btn horizontal click-to-toggle">
-            <a class="btn-floating btn-large share_toggle_button">
-                <img src="{% static 'images/sf/share_icons/share_icon.png'%}" alt="Share" title="Share">
-            </a>
-            <ul class="share_buttons">
-                <li><a target="_blank" href="mailto:" class="btn-floating center mail" data-web="mail"><img src="{% static 'images/sf/share_icons/share_email_icon.png'%}" alt="mail to" title="Mail to"></a></li>
-                <li><a target="_blank" href="whatsapp://send?text=" class="btn-floating center whatsapp" data-web="whatsapp"><img src="{% static 'images/sf/share_icons/share_whatsapp_icon.png'%}" alt="share on whatsapp" title="Share on Whatsapp"></a></li>
-                <li><a target="_blank" href="tg://msg_url?url=" class="btn-floating center telegram" data-web="telegram"><img src="{% static 'images/sf/share_icons/share_telegram_icon.png'%}" alt="share on telegram" title="Share on Telegram"></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" class="btn-floating center facebook" data-web="facebook"><img src="{% static 'images/sf/share_icons/share_facebok_icon.png'%}" alt="share on facebook" title="Share on Facebook"></a></li>
-                <li><a target="_blank" href="http://pinterest.com/pin/create/button/" class="btn-floating center pinterest" data-web="pinterest"><img src="{% static 'images/sf/share_icons/share_pinterest_icon.png'%}" alt="share on pinerest" title="Share on Pinterest"></a></li>
-                <li><a target="_blank" href="https://twitter.com/intent/tweet?text=" class="btn-floating center twitter" data-web="twitter"><img src="{% static 'images/sf/share_icons/share_twitter_icon.png'%}" alt="share on twitter" title="Share on Twitter"></a></li>
-            </ul>
-        </div>
+        <!--<div class="share_buttons_container fixed-action-btn horizontal click-to-toggle">-->
+            <!--<a class="btn-floating btn-large share_toggle_button">-->
+                <!--<img src="{% static 'images/sf/share_icons/share_icon.png'%}" alt="Share" title="Share">-->
+            <!--</a>-->
+            <!--<ul class="share_buttons">-->
+                <!--<li><a target="_blank" href="mailto:" class="btn-floating center mail" data-web="mail"><img src="{% static 'images/sf/share_icons/share_email_icon.png'%}" alt="mail to" title="Mail to"></a></li>-->
+                <!--<li><a target="_blank" href="whatsapp://send?text=" class="btn-floating center whatsapp" data-web="whatsapp"><img src="{% static 'images/sf/share_icons/share_whatsapp_icon.png'%}" alt="share on whatsapp" title="Share on Whatsapp"></a></li>-->
+                <!--<li><a target="_blank" href="tg://msg_url?url=" class="btn-floating center telegram" data-web="telegram"><img src="{% static 'images/sf/share_icons/share_telegram_icon.png'%}" alt="share on telegram" title="Share on Telegram"></a></li>-->
+                <!--<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" class="btn-floating center facebook" data-web="facebook"><img src="{% static 'images/sf/share_icons/share_facebok_icon.png'%}" alt="share on facebook" title="Share on Facebook"></a></li>-->
+                <!--<li><a target="_blank" href="http://pinterest.com/pin/create/button/" class="btn-floating center pinterest" data-web="pinterest"><img src="{% static 'images/sf/share_icons/share_pinterest_icon.png'%}" alt="share on pinerest" title="Share on Pinterest"></a></li>-->
+                <!--<li><a target="_blank" href="https://twitter.com/intent/tweet?text=" class="btn-floating center twitter" data-web="twitter"><img src="{% static 'images/sf/share_icons/share_twitter_icon.png'%}" alt="share on twitter" title="Share on Twitter"></a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
     </div>
 
+{% if releases_by_same_artist %}
+    <div class="center-align padding-top-50 padding-bottom-50">More by this artist</div>
+    <div class="row">
+{% endif %}
+
+{% for release_by_same_artist in releases_by_same_artist %}
+
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    {% thumbnail release_by_same_artist.website_image "400x300" upscale=False as im %}
+                        <img src="{{ MEDIA_URL }}{{ im.url }}">
+                    {% endthumbnail %}
+                    <span class="card-title">{{ release_by_same_artist.name }} [{{ release_by_same_artist.catalogue_number }}]</span>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+
+{% if releases_by_same_artist %}
+    </div>
+{% endif %}
 
     {% if recommended_releases %}
-    <div class="center-align recommended-divider" >Recommended</div>
+    <div class="center-align recommended-divider row" >Recommended</div>
+        <div class="row">
         {% for recommended_release in recommended_releases %}
-        <div class="recommended-cover-container">
-        {% if recommended_release.website_image %}
-            {% thumbnail recommended_release.website_image "2000x300" crop="center" quality=75 as im %}
-                <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
-            {% endthumbnail %}
-        {% else %}
-            {% thumbnail recommended_release.cover_image "2000x300" crop="center" quality=75 as im %}
-                <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
-            {% endthumbnail %}
-        {% endif %}
-            <div class="center-align"><a class="recommended-title" href="/release/{{ recommended_release.slug }}" >{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</a></h4></div>
-            <div class="center-align">{{ recommended_release.headline }}</div>
-        </div>
+
+            <div class="{% if recommended_releases|length == 1 %}offset-m3 offset-l4{% endif %} recommended-cover-container col s12 m6 l4">
+            {% if recommended_release.website_image %}
+                {% thumbnail recommended_release.website_image "640x300" crop="center" quality=75 as im %}
+                    <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
+                {% endthumbnail %}
+            {% else %}
+                {% thumbnail recommended_release.cover_image "640x300" crop="center" quality=75 as im %}
+                    <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
+                {% endthumbnail %}
+            {% endif %}
+                <div class="recommended-text">
+                    <div class="center-align recommended-title"><a href="/release/{{ recommended_release.slug }}" >{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</a></div>
+                    <div class="center-align small-font">{{ recommended_release.headline }}</div>
+                </div>
+            </div>
         {% endfor %}
+        </div>
 
     {% endif %}
 
