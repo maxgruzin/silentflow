@@ -37,8 +37,10 @@ def catalogue(request):
 
     if request.method == 'GET':
         releases = Release.objects.filter(is_active=True).order_by('-released_at')
+        tags = Tag.objects.all()
 
         return render(request, 'catalogue.html', {'releases': releases,
+                                                  'tags': tags,
                                                   'version': __version__})
 
 
