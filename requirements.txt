@@ -1,6 +1,7 @@
 appdirs==1.4.3
+asgiref==3.2.7
 coverage==5.0.4
-Django==2.1.7
+Django==3.0.5
 olefile==0.46
 packaging==20.3
 Pillow==7.1.1
@@ -9,3 +10,4 @@ pyparsing==2.4.7
 pytz==2019.3
 six==1.14.0
 sorl-thumbnail==12.6.3
+sqlparse==0.3.1

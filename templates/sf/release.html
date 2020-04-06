@@ -120,6 +120,23 @@
 
     {% endif %}
 
+    {% if artists %}
+        <div class="artist row">
+        {% for artist in artists %}
+            {% if artist.bio %}
+            <div class="offset-m3 offset-l4 col s12 m6 l4">
+                <div class="artist-text">
+                    <div class="center-align recommended-title">{{ artist.name }}</a></div>
+                    <div class="center-align small-font">{{ artist.bio }}</div>
+                    <div class="center-align small-font"><b>{% if artist.websites %}<a href="{{ artist.websites.0 }}" target="_blank">website</a>{% endif %}
+                        {% if artist.email %}&nbsp&nbsp&nbsp<a href="mailto://{{ artist.email }}">email</a>{% endif %}</b></div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+
 
 
 {% endblock %}
