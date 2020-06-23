@@ -43,7 +43,7 @@
             {{ artist.bio }}
             {% if artist.websites %}<br><br><span><a href="{{ artist.websites.0 }}" ><b>website</b></a></span>{% endif %}<br><br>
             {% for release in artist.releases %}
-                <div><a href="{{ request.scheme }}://{{ request.get_host }}/release/{{ release.slug }}"><b>[{{ release.catalogue_number }}] {{ release.name }}</b></a></div>
+                <div><a href="https://silentflow.org/release/{{ release.slug }}"><b>[{{ release.catalogue_number }}] {{ release.name }}</b></a></div>
             {% endfor %}
 
         </div>
