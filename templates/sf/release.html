@@ -50,8 +50,13 @@
         </div>
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
         <div class="center-align">
-            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD RELEASE</a></b>
+            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD</a></b>
         </div>
+        {% if  release.download_link_lossless %}
+        <div class="center-align">
+            <b><a class="download-button-lossless" href="{{ release.download_link_lossless }}">DOWNLOAD LOSSLESS</a></b>
+        </div>
+        {% endif %}
         <div class="center-align padding-top-50">
             {{ release.mentions|default_if_none:""|linebreaks }}
         </div>
