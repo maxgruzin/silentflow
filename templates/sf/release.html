@@ -50,11 +50,13 @@
         </div>
         <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
         <div class="center-align">
-            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD</a></b>
+{#            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD</a></b>#}
+            <b><a class="download-button download-button_extended" href="{{ release.download_link }}"><span class="inner_text">DOWNLOAD</span><span class="inner_label">mp3</span></a></b>
         </div>
         {% if  release.download_link_lossless %}
         <div class="center-align">
-            <b><a class="download-button-lossless" href="{{ release.download_link_lossless }}">DOWNLOAD LOSSLESS</a></b>
+{#            <b><a class="download-button-lossless  " href="{{ release.download_link_lossless }}">DOWNLOAD LOSSLESS</a></b>#}
+            <b><a class="download-button-lossless  download-button_extended" href="{{ release.download_link_lossless }}"><span class="inner_text">DOWNLOAD LOSSLESS</span><span class="inner_label">flac</span></a></b>
         </div>
         {% endif %}
         <div class="center-align padding-top-50">
