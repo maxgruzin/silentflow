@@ -10,21 +10,21 @@
     <!--</div>-->
 
     <div class="padding-top-80"></div>
-    <div id="filters" class="row">
-        <div class="col s12 m3 input-field">
-            <input id="search_release" type="text">
-            <label for="search_release">Search release</label>
-        </div>
-        <div class="col s12 m3 input-field">
-            <select multiple id="tags_select">
-              <option value="" disabled selected>Select tag for filtering</option>
-                {% for tag in tags %}
-                      <option value=" {{ tag.name }}"> {{ tag.name }}</option>
-                {% endfor %}
-            </select>
-{#            <label>Select tag for filtering</label>#}
-        </div>
-    </div>
+<!--    <div id="filters" class="row">-->
+<!--        <div class="col s12 m3 input-field">-->
+<!--            <input id="search_release" type="text">-->
+<!--            <label for="search_release">Search release</label>-->
+<!--        </div>-->
+<!--        <div class="col s12 m3 input-field">-->
+<!--            <select multiple id="tags_select">-->
+<!--              <option value="" disabled selected>Select tag for filtering</option>-->
+<!--                {% for tag in tags %}-->
+<!--                      <option value=" {{ tag.name }}"> {{ tag.name }}</option>-->
+<!--                {% endfor %}-->
+<!--            </select>-->
+<!--{#            <label>Select tag for filtering</label>#}-->
+<!--        </div>-->
+<!--    </div>-->
     <div id="releases_list" class="row">
     {% for release in releases %}
         <div class="col s12 m4 l2">
