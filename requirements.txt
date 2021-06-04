@@ -1,7 +1,7 @@
 appdirs==1.4.3
 asgiref==3.2.7
 coverage==5.0.4
-Django==3.0.7
+Django==3.1.9
 olefile==0.46
 packaging==20.3
 Pillow==8.1.2
