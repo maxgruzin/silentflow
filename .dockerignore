@@ -1,0 +1,13 @@
+.git
+__pycache__
+*.py[cod]
+.env
+.env.*
+.venv
+venv
+config/settings_local.py
+media
+static/media
+staticfiles
+logs
+artifacts

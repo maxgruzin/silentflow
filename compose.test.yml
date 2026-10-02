@@ -1,0 +1,29 @@
+name: silentflow-tests
+services:
+  database:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: silentflow_test
+      POSTGRES_PASSWORD: local-test-only
+      POSTGRES_DB: silentflow_test
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U silentflow_test -d silentflow_test"]
+      interval: 2s
+      timeout: 5s
+      retries: 20
+  tests:
+    image: silentflow-local-backend:latest
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings_test
+      DATABASE_HOST: database
+      DATABASE_NAME: silentflow_test
+      DATABASE_USER: silentflow_test
+      DATABASE_PASSWORD: local-test-only
+    volumes:
+      - .:/home/app
+    depends_on:
+      database:
+        condition: service_healthy
+    command: python manage.py test --noinput --verbosity=2

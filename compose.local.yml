@@ -1,0 +1,32 @@
+name: silentflow-local
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    env_file:
+      - ../docker-config.env
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings_docker_local
+      DATABASE_HOST: pgdb
+      DATABASE_PORT: "5432"
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - .:/home/app
+      - ../media:/home/app/media
+    networks:
+      - database
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/about/', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+
+networks:
+  database:
+    external: true
+    name: pgdb_ain_ntwrk
