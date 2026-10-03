@@ -8,6 +8,7 @@
     const toggle = player.querySelector('.player-toggle');
     const seek = player.querySelector('.player-seek');
     const status = player.querySelector('.player-status');
+    const loading = player.querySelector('.player-loading');
     const elapsed = player.querySelector('.player-elapsed');
     const remaining = player.querySelector('.player-remaining');
     const shuffleButton = player.querySelector('.player-shuffle');
@@ -28,6 +29,7 @@
     };
     const duration = () => Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
     const announce = message => { status.textContent = message; };
+    const setLoading = active => { loading.hidden = !active; };
     const mediaSession = 'mediaSession' in navigator ? navigator.mediaSession : null;
 
     function syncPlayback() {
@@ -59,11 +61,13 @@
     async function play() {
         const request = ++generation;
         announce('');
+        setLoading(audio.readyState < 3);
         try {
             await audio.play();
         } catch (error) {
             // A newer track, pause, or close can intentionally cancel play().
             if (request !== generation || player.hidden || error.name === 'AbortError') return;
+            setLoading(false);
             announce(error.name === 'NotAllowedError' ? 'Press play to start listening.' : 'This track could not be loaded. Try again or download the release.');
             syncPlayback();
         }
@@ -202,7 +206,10 @@
     ['play', 'pause', 'ended', 'emptied'].forEach(event => audio.addEventListener(event, syncPlayback));
     ['timeupdate', 'loadedmetadata', 'durationchange', 'emptied'].forEach(event => audio.addEventListener(event, syncTime));
     audio.addEventListener('ended', () => next(true));
-    audio.addEventListener('waiting', () => { if (!player.hidden) announce('Loading audio...'); });
+    ['loadstart', 'waiting'].forEach(event => audio.addEventListener(event, () => {
+        if (!player.hidden && current >= 0) setLoading(true);
+    }));
+    ['canplay', 'playing', 'pause', 'ended', 'emptied', 'error'].forEach(event => audio.addEventListener(event, () => setLoading(false)));
     audio.addEventListener('playing', () => announce(''));
     audio.addEventListener('error', () => {
         if (!player.hidden) announce('This track could not be loaded. Try again or download the release.');

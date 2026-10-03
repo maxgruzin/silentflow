@@ -1,5 +1,6 @@
 <section class="music-player" hidden aria-label="Music player" data-artist="{{ artists|join:', '|default:'Various artists' }}" data-album="{{ release.name }}" data-total="{{ tracklist|length }}">
     <audio id="release-audio" preload="none"></audio>
+    <span class="player-loading" hidden role="status"><span class="player-loading-label">Loading audio...</span>{% include 'components/player_icon.html' with icon='loading' %}</span>
     <button class="player-close" type="button" aria-label="Close player" title="Close player">{% include 'components/player_icon.html' with icon='close' %}</button>
     <div class="player-meta" aria-live="polite" aria-atomic="true">
         <p class="player-artist"></p>

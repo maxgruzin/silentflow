@@ -66,6 +66,16 @@ async function endTrack(page) {
             assert(Math.abs(bounds.y + bounds.height - 900) < 2, 'Player is fixed to bottom');
             assert(bounds.x >= 0 && bounds.x + bounds.width <= width, 'Player fits viewport');
 
+            await page.locator('audio').evaluate(audio => audio.dispatchEvent(new Event('waiting')));
+            assert(await page.locator('.player-loading').isVisible(), 'Buffering shows the loading icon');
+            assert.equal(await page.locator('.player-status').innerText(), '');
+            const loadingBounds = await page.locator('.music-player').boundingBox();
+            assert.deepEqual(loadingBounds, bounds, 'Loading does not change player size or position');
+            const iconBounds = await page.locator('.player-loading').boundingBox();
+            assert(Math.abs(iconBounds.x - bounds.x) < 2 && Math.abs(iconBounds.y - bounds.y) < 2, 'Loading icon is in the top-left corner');
+            await page.locator('audio').evaluate(audio => audio.dispatchEvent(new Event('playing')));
+            assert(await page.locator('.player-loading').isHidden(), 'Playback clears the loading icon');
+
             await page.locator('.player-toggle').click();
             assert(await page.locator('audio').evaluate(audio => audio.paused));
             assert.equal(await tracks.first().getAttribute('aria-pressed'), 'false');
@@ -123,6 +133,7 @@ async function endTrack(page) {
             failAudio = true;
             await tracks.first().click();
             await page.waitForFunction(() => /could not be loaded/.test(document.querySelector('.player-status').textContent));
+            assert(await page.locator('.player-loading').isHidden(), 'An audio error clears the loading icon');
             failAudio = false;
             await page.locator('.player-toggle').click();
             await playing(page);

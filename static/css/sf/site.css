@@ -176,6 +176,11 @@ html:has(.player-open) { scroll-padding-bottom: 210px; }
 .music-player button:disabled { opacity: .4; cursor: default; }
 .music-player svg { width: 100%; height: 100%; }
 .music-player .player-close { position: absolute; top: 0; right: 0; width: 36px; height: 36px; padding: 10px; z-index: 1; }
+.player-loading { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 36px; height: 36px; padding: 10px; color: #2e3033; pointer-events: none; }
+.player-loading svg { animation: player-loading-spin .8s linear infinite; }
+.player-loading-label { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes player-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .player-loading svg { animation: none; } }
 .player-meta { text-align: center; padding-inline: 38px; line-height: 1.25; }
 .player-meta p { color: #292929; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .player-artist { font-size: .75rem; }
