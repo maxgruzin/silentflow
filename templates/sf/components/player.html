@@ -1,0 +1,19 @@
+<section class="music-player" hidden aria-label="Music player" data-artist="{{ artists|join:', '|default:'Various artists' }}" data-album="{{ release.name }}" data-total="{{ tracklist|length }}">
+    <audio id="release-audio" preload="none"></audio>
+    <button class="player-close" type="button" aria-label="Close player" title="Close player">{% include 'components/player_icon.html' with icon='close' %}</button>
+    <div class="player-meta" aria-live="polite" aria-atomic="true">
+        <p class="player-artist"></p>
+        <p class="player-title"></p>
+        <p class="player-count"></p>
+    </div>
+    <div class="player-times"><span class="player-elapsed">00:00</span><span class="player-remaining">--:--</span></div>
+    <input class="player-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek within track" aria-valuetext="Not loaded" disabled>
+    <div class="player-controls">
+        <button class="player-shuffle" type="button" aria-label="Shuffle" aria-pressed="false" title="Shuffle">{% include 'components/player_icon.html' with icon='shuffle' %}</button>
+        <button class="player-previous" type="button" aria-label="Previous track" title="Previous track">{% include 'components/player_icon.html' with icon='previous' %}</button>
+        <button class="player-toggle" type="button" aria-label="Play" title="Play">{% include 'components/player_icon.html' with icon='play-pause' %}</button>
+        <button class="player-next" type="button" aria-label="Next track" title="Next track">{% include 'components/player_icon.html' with icon='next' %}</button>
+        <button class="player-repeat" type="button" aria-label="Repeat: off. Enable repeat all" title="Repeat: off" data-mode="off">{% include 'components/player_icon.html' with icon='repeat' %}<span class="repeat-one" aria-hidden="true">1</span></button>
+    </div>
+    <p class="player-status" role="status"></p>
+</section>

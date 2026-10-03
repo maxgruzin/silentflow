@@ -1,0 +1,11 @@
+{% load responsive_images template_tags %}
+<article class="release-card"{% if searchable %} data-search="{{ release.name|lower }} {{ release.catalogue_number|lower }}"{% endif %}>
+    <a class="card-art" href="{% url 'release' release.slug %}" aria-label="Explore {{ release.name }}">{% picture release.cover_image alt=release.name sizes='(max-width: 600px) 46vw, (max-width: 1000px) 30vw, 300px' %}</a>
+    <div class="card-copy"><p class="eyebrow">{{ release.catalogue_number }} &middot; {{ release.released_at|date:'Y' }}</p>
+    <h2><a href="{% url 'release' release.slug %}">{{ release.name }}</a></h2>
+    <div class="card-actions">
+        <a href="{% url 'release' release.slug %}">Listen &#8599;</a>
+        {% if release.download_link|safe_web_url %}<a href="{{ release.download_link|safe_web_url }}" aria-label="Download {{ release.name }} as MP3">Download MP3 &#8595;</a>{% endif %}
+        {% if release.download_link_lossless|safe_web_url %}<a href="{{ release.download_link_lossless|safe_web_url }}" aria-label="Download {{ release.name }} lossless">Download lossless &#8595;</a>{% endif %}
+    </div></div>
+</article>

@@ -1,0 +1,5 @@
+# Overlay the existing ../docker-compose.yml; replace only its backend image.
+# Keep the existing project name so its static volume and network stay attached.
+services:
+  backend:
+    image: ${SILENTFLOW_IMAGE:?Set SILENTFLOW_IMAGE to the tested release image}

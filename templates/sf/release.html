@@ -1,153 +1,50 @@
 {% extends "base.html" %}
-{% load static %}
-{% load thumbnail %}
-{% load template_tags %}
-{% block title %}<title>{{ release.name }} [{{ release.catalogue_number }}]</title>{% endblock %}
-{% block description %}
-    <meta name="description"
-          content="{{ release.name }} [{{ release.catalogue_number }}] - Silent Flow release"
-          xmlns="http://www.w3.org/1999/html">
-{% endblock %}
+{% load static responsive_images template_tags %}
 {% block content %}
-    <div class="cover-container" id="cover-container">
-        {% if  release.website_image %}
-            {% thumbnail release.website_image "2000x2000" upscale=False as im %}
-                <div class="cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
-            {% endthumbnail %}
-
-            <!--<div class="release-background-container_1" style="background-image: url({{ im.url }});"></div>-->
-            <!--<div class="overlay"></div>-->
-
-        {% else %}
-        <div class="cover-background-container" style="background-image: url( '{{ MEDIA_URL }}{{ release.cover_image }}');">
-            <!--<div class="release-background-container_1" style="background-image: url({{ im.url }});"></div>-->
-            <!--<div class="overlay"></div>-->
+<article class="release-detail">
+  <section class="release-hero">
+    <div class="release-backdrop" aria-hidden="true">{% picture release.website_image|default:release.cover_image profile='landscape' eager=True fit='container' %}</div>
+    <div class="shell release-body">
+    <div class="release-layout">
+        <div class="release-intro"><p class="eyebrow">{{ release.catalogue_number }} &middot; <time datetime="{{ release.released_at|date:'Y-m-d' }}">{{ release.released_at|date:'j M Y' }}</time></p>
+            <h1>{{ release.name }}</h1>
+            <ul class="tags" aria-label="Genres">{% for tag in tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+            {% if not release.review and release.headline %}<p class="release-headline">{{ release.headline }}</p>{% endif %}
+            <div class="review prose">{{ release.review|default_if_none:''|linebreaks }}</div>
+            <div class="actions">
+                {% if release.download_link|safe_web_url %}<a class="button" href="{{ release.download_link|safe_web_url }}">Download release <small>MP3 &#8595;</small></a>{% endif %}
+                {% if release.download_link_lossless|safe_web_url %}<a class="button button-ghost" href="{{ release.download_link_lossless|safe_web_url }}">Download lossless <small>FLAC &#8595;</small></a>{% endif %}
+            </div>
         </div>
-        {% endif %}
-        <!--<div class="center-align small-font">{{ release.released_at|date:'d M Y' }}</div>-->
-        <h1 class="center-align">{{ release.name }} [{{ release.catalogue_number }}]</h1>
-        <div class="review-container center-align">{{ release.review|linebreaks }}</div>
-        <div class="center-align small-font">
-            {% for tag in tags %}
-                <div class="chip">{{ tag }}</div>
-            {% endfor %}
-        </div>
-        <div class="center-align tracks_container">
-            <ul>
-            {% for track in tracklist %}
-                <li>
+    </div>
+    <section class="track-section" aria-labelledby="tracklist-title"><div class="section-heading"><h2 id="tracklist-title">Press play. Listen...</h2><span class="eyebrow">Tracklist</span></div>
+        <ol class="track-list">
+        {% for track in tracklist %}
+            <li class="track-row" id="track-{{ track.pk }}">
                 {% if track.track_mp3 %}
-                    <i class="btn-play material-icons" id="btn-play-{{ track.id }}" >play_circle_outline</i>
-                    <i class="btn-pause hide material-icons" id="btn-pause-{{ track.id }}">pause_circle_outline</i>
-                    <audio id="audio-{{ track.id }}" src="{{ track.track_mp3.url }}" preload="none"></audio>
-                {% endif %}
-                <!--<i class="material-icons">play_circle_filled</i>-->
-                <!--<i class="material-icons">pause_circle_filled</i>-->
-                    <span class="track">{{ track.pos }}. {{ track.title }} [{{ track.duration|duration_format }}]</span>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-        <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
-        <div class="center-align">
-{#            <b><a class="download-button" href="{{ release.download_link }}">DOWNLOAD</a></b>#}
-            <b><a class="download-button download-button_extended" href="{{ release.download_link }}"><span class="inner_text">DOWNLOAD</span><span class="inner_label">mp3</span></a></b>
-        </div>
-        {% if  release.download_link_lossless %}
-        <div class="center-align">
-{#            <b><a class="download-button-lossless  " href="{{ release.download_link_lossless }}">DOWNLOAD LOSSLESS</a></b>#}
-            <b><a class="download-button-lossless  download-button_extended" href="{{ release.download_link_lossless }}"><span class="inner_text">DOWNLOAD LOSSLESS</span><span class="inner_label">flac</span></a></b>
-        </div>
-        {% endif %}
-        <div class="center-align padding-top-50">
-            {{ release.mentions|default_if_none:""|linebreaks }}
-        </div>
-        <div class="right-align release-date">{{release.released_at|date:"d M Y"}}</div>
-
-        <!--<div class="share_buttons_container fixed-action-btn horizontal click-to-toggle">-->
-            <!--<a class="btn-floating btn-large share_toggle_button">-->
-                <!--<img src="{% static 'images/sf/share_icons/share_icon.png'%}" alt="Share" title="Share">-->
-            <!--</a>-->
-            <!--<ul class="share_buttons">-->
-                <!--<li><a target="_blank" href="mailto:" class="btn-floating center mail" data-web="mail"><img src="{% static 'images/sf/share_icons/share_email_icon.png'%}" alt="mail to" title="Mail to"></a></li>-->
-                <!--<li><a target="_blank" href="whatsapp://send?text=" class="btn-floating center whatsapp" data-web="whatsapp"><img src="{% static 'images/sf/share_icons/share_whatsapp_icon.png'%}" alt="share on whatsapp" title="Share on Whatsapp"></a></li>-->
-                <!--<li><a target="_blank" href="tg://msg_url?url=" class="btn-floating center telegram" data-web="telegram"><img src="{% static 'images/sf/share_icons/share_telegram_icon.png'%}" alt="share on telegram" title="Share on Telegram"></a></li>-->
-                <!--<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=" class="btn-floating center facebook" data-web="facebook"><img src="{% static 'images/sf/share_icons/share_facebok_icon.png'%}" alt="share on facebook" title="Share on Facebook"></a></li>-->
-                <!--<li><a target="_blank" href="http://pinterest.com/pin/create/button/" class="btn-floating center pinterest" data-web="pinterest"><img src="{% static 'images/sf/share_icons/share_pinterest_icon.png'%}" alt="share on pinerest" title="Share on Pinterest"></a></li>-->
-                <!--<li><a target="_blank" href="https://twitter.com/intent/tweet?text=" class="btn-floating center twitter" data-web="twitter"><img src="{% static 'images/sf/share_icons/share_twitter_icon.png'%}" alt="share on twitter" title="Share on Twitter"></a></li>-->
-            <!--</ul>-->
-        <!--</div>-->
+                <button class="track-toggle" type="button" hidden data-track-url="{{ track.track_mp3.url }}" data-track-title="{{ track.title }}" data-track-position="{{ track.pos }}" aria-label="Play {{ track.title }}" aria-pressed="false">
+                    {% include 'components/player_icon.html' with icon='play-pause' %}
+                </button>
+                <noscript><a href="{{ track.track_mp3.url }}" aria-label="Listen to {{ track.title }}">Play</a></noscript>
+                {% else %}<span class="track-unavailable" title="Available in the full download">&mdash;</span>{% endif %}
+                <span class="track-position">{{ track.pos|stringformat:'02d' }}</span>
+                <span class="track-name">{{ track.title }}</span>
+                <span class="track-duration">{{ track.duration|duration_format }}</span>
+            </li>
+        {% empty %}<li>Listen using the full release download.</li>{% endfor %}
+        </ol>
+    </section>
+    {% if release.mentions %}<section class="credits prose"><h2>Release notes</h2>{{ release.mentions|linebreaks }}</section>{% endif %}
     </div>
-
-{% if releases_by_same_artist %}
-    <div class="center-align padding-top-50 padding-bottom-50">More by this artist</div>
-    <div class="row">
-{% endif %}
-
-{% for release_by_same_artist in releases_by_same_artist %}
-
-        <div class="col s12 m6 l4">
-            <div class="card">
-                <div class="card-image">
-                    {% thumbnail release_by_same_artist.website_image "400x300" upscale=False as im %}
-                        <img src="{{ MEDIA_URL }}{{ im.url }}">
-                    {% endthumbnail %}
-                    <span class="card-title">{{ release_by_same_artist.name }} [{{ release_by_same_artist.catalogue_number }}]</span>
-                </div>
-            </div>
-        </div>
-{% endfor %}
-
-{% if releases_by_same_artist %}
-    </div>
-{% endif %}
-
-    {% if recommended_releases %}
-    <div class="center-align recommended-divider row" >Recommended</div>
-        <div class="row">
-        {% for recommended_release in recommended_releases %}
-
-            <div class="{% if recommended_releases|length == 1 %}offset-m3 offset-l4{% endif %} recommended-cover-container col s12 m6 l4">
-            {% if recommended_release.website_image %}
-                {% thumbnail recommended_release.website_image "640x300" crop="center" quality=75 as im %}
-                    <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
-                {% endthumbnail %}
-            {% else %}
-                {% thumbnail recommended_release.cover_image "640x300" crop="center" quality=75 as im %}
-                    <div class="recommended-cover-background-container" style="background-image: url( '{{ im.url }}');"></div>
-                {% endthumbnail %}
-            {% endif %}
-                <div class="recommended-text">
-                    <div class="center-align recommended-title"><a href="/release/{{ recommended_release.slug }}" >{{ recommended_release.name }} [{{ recommended_release.catalogue_number }}]</a></div>
-                    <div class="center-align small-font">{{ recommended_release.headline }}</div>
-                </div>
-            </div>
-        {% endfor %}
-        </div>
-
-    {% endif %}
-
-    {% if artists %}
-        <div class="artist row">
-        {% for artist in artists %}
-            {% if artist.bio %}
-            <div class="offset-m3 offset-l4 col s12 m6 l4">
-                <div class="artist-text">
-                    <div class="center-align recommended-title">{{ artist.name }}</a></div>
-                    <div class="center-align small-font">{{ artist.bio }}</div>
-                    <div class="center-align small-font"><b>{% if artist.websites %}<a href="{{ artist.websites.0 }}" target="_blank">website</a>{% endif %}
-                        {% if artist.email %}&nbsp&nbsp&nbsp<a href="mailto://{{ artist.email }}">email</a>{% endif %}</b></div>
-                </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-        </div>
-    {% endif %}
-
-
+  </section>
+  <div class="shell release-extras">
+    {% if artists %}<section class="release-artists"><p class="eyebrow">Behind the release</p>{% for artist in artists %}<div class="prose"><h2><a href="{% url 'artists' %}#artist-{{ artist.id }}">{{ artist.name }} &#8599;</a></h2>{% if artist.bio %}{{ artist.bio|linebreaks }}{% endif %}{% if artist.websites.0|safe_web_url %}<a class="text-link" href="{{ artist.websites.0|safe_web_url }}" target="_blank" rel="noopener noreferrer">Artist website &#8599;</a>{% endif %}</div>{% endfor %}</section>{% endif %}
+    {% if recommended_releases %}<section class="recommendations" aria-labelledby="recommended-title"><div class="section-heading"><h2 id="recommended-title">Keep exploring</h2><span class="eyebrow">More from these artists</span></div><div class="release-grid">{% for recommended_release in recommended_releases %}{% include 'components/release_card.html' with release=recommended_release %}{% endfor %}</div></section>{% endif %}
+  </div>
+</article>
+<nav class="release-footer-nav shell" aria-label="Back to releases">
+    <a class="back-link" href="{% url 'catalogue' %}">&#8592; All releases</a>
+</nav>
+{% include 'components/player.html' %}
 {% endblock %}
-{% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/release.js' %}?v={{ version }}"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/sf/release.css' %}?v={{ version }}">
-{% endblock %}
+{% block scripts %}<script src="{% static 'js/sf/release.js' %}?v={{ version }}" defer></script>{% endblock %}

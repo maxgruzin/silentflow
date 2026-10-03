@@ -1,63 +1,19 @@
 {% extends "base.html" %}
-{% load static %}
-{% load thumbnail %}
-{% block title %}<title>Silent Flow artists</title>{% endblock %}
-{% block description %}
-    <meta name="description"
-          content="List of Silent Flow's musicians"
-          xmlns="http://www.w3.org/1999/html">
-{% endblock %}
+{% load responsive_images template_tags %}
 {% block content %}
-
-    <!--<div class="padding-top-100"> </div>-->
-    <!--<div class="row">-->
-        <!--<ul class="collapsible" data-collapsible="accordion center-align">-->
-        <!--{% for artist in artists %}-->
-            <!--{% if artist.bio %}-->
-            <!--<li>-->
-                <!--<div class="collapsible-header grey darken-4"><div class="row artist-header">{{ artist.name }}</div></div>-->
-                <!--<div class="collapsible-body"><div class="artist-bio center-align"> {{ artist.bio }}</div>-->
-                    <!--{% if artist.websites %}-->
-                    <!--<br>-->
-                    <!--<div class="center-align"><a href="{{ artist.websites.0 }}" >website</a></div><br>-->
-                    <!--{% endif %}-->
-                        <!--{% for release in artist.releases %}-->
-                                <!--<div class="center-align"><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/release/{{ release.slug }}"> [{{ release.catalogue_number }}] {{ release.name }}</a></div>-->
-                        <!--{% endfor %}-->
-                <!--</div>-->
-
-            <!--</li>-->
-            <!--{% endif %}-->
-        <!--{% endfor %}-->
-        <!--</ul>-->
-    <!--</div>-->
-
-
-    <div class="padding-top-80"></div>
-    <div class="row">
-    {% for artist in artists %}{% if artist.bio %}
-        <div class="col s12 m6 l3">
-        <div class="card dark-gray-1">
-        <div class="card-content white-text">
-            <span class="card-title dark-gray-1">{{ artist.name }}</span>
-            {{ artist.bio }}
-            {% if artist.websites %}<br><br><span><a href="{{ artist.websites.0 }}" ><b>website</b></a></span>{% endif %}<br><br>
-            {% for release in artist.releases %}
-                <div><a href="{% url 'release' release.slug %}"><b>[{{ release.catalogue_number }}] {{ release.name }}</b></a></div>
-            {% endfor %}
-
-        </div>
-        </a>
-        </div>
-
-        </div>
-        <!-- <div class="center-align"></div> -->
-    {% endif %}{% endfor %}
+<section class="shell page-section">
+    <header class="page-heading"><p class="eyebrow">The people behind the sound</p><h1>Independent voices.<br>Shared curiosity.</h1><p>Meet the artists shaping Silent Flow. Follow their stories and explore the music they share with the label.</p></header>
+    <div class="artist-grid">
+    {% for artist in artists %}
+        <article class="artist-card" id="artist-{{ artist.id }}">
+            <div class="artist-heading"><h2>{{ artist.name }}</h2>{% if artist.country %}<span class="eyebrow">{{ artist.country }}</span>{% endif %}</div>
+            {% if artist.bio %}<div class="artist-bio">{{ artist.bio|linebreaks }}</div>{% endif %}
+            {% if artist.websites.0|safe_web_url %}<a class="text-link" href="{{ artist.websites.0|safe_web_url }}" rel="noopener noreferrer" target="_blank">Artist website &#8599;</a>{% endif %}
+            {% if artist.releases %}<ul class="artist-releases">
+                {% for release in artist.releases %}<li><a href="{% url 'release' release.slug %}"><span class="mini-cover">{% picture release.cover_image alt='' sizes='64px' %}</span><span><small>{{ release.catalogue_number }}</small>{{ release.name }}</span><span aria-hidden="true">&#8599;</span></a></li>{% endfor %}
+            </ul>{% endif %}
+        </article>
+    {% empty %}<p>Artist profiles are on their way.</p>{% endfor %}
     </div>
-
-
-{% endblock %}
-{% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/artists.js' %}?v={{ version }}"></script>
-    <link rel="stylesheet" href="{% static 'css/sf/artists.css' %}?v={{ version }}">
+</section>
 {% endblock %}

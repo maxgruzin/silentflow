@@ -14,6 +14,8 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
 CSRF_TRUSTED_ORIGINS = os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split()
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+SITE_URL = os.environ.get('SITE_URL', 'https://silentflow.org').rstrip('/')
+SITE_INDEXABLE = env_bool('SITE_INDEXABLE', True)
 
 
 INSTALLED_APPS = [
@@ -30,6 +32,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'sf.middleware.IndexingMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,6 +57,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
+                'sf.context_processors.site_metadata',
             ],
             # 'libraries':{
             #     'template_tags': 'sf.template_tags',
@@ -110,6 +114,11 @@ MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 MEDIA_URL = '/media/'
 
+# Public assets must remain readable by the separate nginx container even when
+# Gunicorn's restrictive umask is in effect. These modes do not grant write access.
+FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -125,6 +134,7 @@ SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '0'))
 X_FRAME_OPTIONS = 'DENY'
 THUMBNAIL_BACKEND = 'sf.thumbnails.RepairingThumbnailBackend'
+THUMBNAIL_ENGINE = 'sf.image_engine.Engine'
 THUMBNAIL_UPSCALE = False
 CACHES = {'default': {
     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',

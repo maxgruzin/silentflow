@@ -1,0 +1,16 @@
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+{% if icon == 'play-pause' %}
+    <path class="icon-play" d="M6 3 21 12 6 21Z" fill="currentColor"/>
+    <path class="icon-pause" d="M5 3h5v18H5zm9 0h5v18h-5z" fill="currentColor"/>
+{% elif icon == 'next' %}
+    <path d="m3 5 9 7-9 7zm9 0 9 7-9 7zM21 5h2v14h-2z" fill="currentColor"/>
+{% elif icon == 'previous' %}
+    <path d="m21 5-9 7 9 7zm-9 0-9 7 9 7zM1 5h2v14H1z" fill="currentColor"/>
+{% elif icon == 'shuffle' %}
+    <path d="M3 6h3c4 0 8 12 12 12h3m-4-4 4 4-4 4M3 18h3c4 0 8-12 12-12h3m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+{% elif icon == 'repeat' %}
+    <path d="M4 10V6h16m-4-4 4 4-4 4M20 14v4H4m4-4-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+{% elif icon == 'close' %}
+    <path d="m6 6 12 12M6 18 18 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+{% endif %}
+</svg>

@@ -1,52 +1,38 @@
 {% extends "base.html" %}
-{% load static %}
-{% load thumbnail %}
-{% block title %}<title>Silent Flow - ambient, experimental, jazz label</title>{% endblock %}
-{% block description %}
-    <meta name="description"
-          content="Silent Flow Label – ambient, experimental, jazz music distributor."
-          xmlns="http://www.w3.org/1999/html">
-{% endblock %}
+{% load static responsive_images %}
 {% block content %}
-    <div class="banner-top-spacer"></div>
-    <h1 class="center banner-container">
-        <img id="logo-img" src="{% static 'images/sf/sf_logo.png' %}" alt="Silent Flow" width="700">
-    </h1>
-    <div class="center heading-container">
-        <h2>ambient, experimental, jazz label</h2>
+<section class="home-intro shell" aria-labelledby="intro-title">
+  <div class="intro-panel">
+    <div class="intro-content">
+      <p class="eyebrow">Independent netlabel &middot; Freely shared</p>
+      <h1 id="intro-title">Silent Flow</h1>
+      <p class="intro-genres">Ambient / Experimental / Jazz</p>
+      <p class="intro-copy">A space for sounds that take their own shape.<br>Discover independent artists. Listen and download for free.</p>
+      <div class="actions">
+        <a class="button" href="#latest">Explore the music &#8595;</a>
+        <a class="text-link" href="{% url 'artists' %}">Artists &#8599;</a>
+        <a class="text-link" href="{% url 'about' %}">About the label &#8599;</a>
+      </div>
     </div>
-    <div class="banner-bottom-spacer"></div>
-    {# {% for release in releases %} #}
-    {# {% thumbnail release.cover_image "200x75" crop="center" as im %} #}
-    {# <div class="col l6 s12 release-container"> #}
-    {#    <div class="release-background-container" style="background-image: url({{ im.url }});"></div> #}
-    {# {% endthumbnail %} #}
-    {#    <div class="release-text-container center-align row"> #}
-    {#        <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3> #}
-    {#        <div class="col l8 m8 s12 offset-l2 offset-m2 release-headline">{{ release.headline }}</div> #}
-        <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
-    {#    </div> #}
-    {# </div> #}
-    {# {% endfor %} #}
-
+    <div class="intro-emblem" aria-hidden="true">
+      <img src="{% static 'images/sf/logo.png' %}" alt="" width="401" height="401" decoding="async">
+    </div>
+  </div>
+</section>
+<section id="latest" aria-labelledby="latest-title">
+    <div class="section-heading shell"><h2 id="latest-title">Latest sounds</h2><a class="text-link" href="{% url 'catalogue' %}">All releases &#8599;</a></div>
     {% for release in releases %}
-    {% thumbnail release.website_image "2000x1500" quality=75 crop="center" as im %}
-    <div class="rel-container">
-        <div class="rel-background-container" style="background-image: url({{ im.url }});"></div>
-    {% endthumbnail %}
-        <div class="rel-text-container center-align row">
-            <h3><a href="/release/{{ release.slug }}" >{{ release.name }} [{{ release.catalogue_number }}]</a></h3>
-            <div class="rel-headline">{{ release.headline }}</div>
-        <!--<img src="{{ MEDIA_URL }}{{ release.cover_image }}">-->
+    <article class="release-banner">
+        <div class="banner-art" aria-hidden="true">{% picture release.website_image|default:release.cover_image profile='landscape' eager=forloop.first fit='viewport' %}</div>
+        <div class="banner-content shell">
+            <p class="eyebrow">{{ release.catalogue_number }} &middot; {{ release.released_at|date:'Y' }}</p>
+            <h3><a href="{% url 'release' release.slug %}">{{ release.name }}</a></h3>
+            {% if release.headline %}<p>{{ release.headline }}</p>{% endif %}
+            <a class="button button-ghost" href="{% url 'release' release.slug %}">Listen & explore <span aria-hidden="true">&#8599;</span></a>
         </div>
-    </div>
-    {% endfor %}
-
-    <div class="center-align padding-top-50 padding-bottom-50">
-        <a class="full-catalogue" href="{% url 'catalogue' %}">All releases</a>
-    </div>
+    </article>
+    {% empty %}<p class="shell">New sounds are on their way.</p>{% endfor %}
+    <div class="section-end"><a class="button" href="{% url 'catalogue' %}">Explore the full catalogue &#8599;</a></div>
+</section>
 {% endblock %}
-{% block external %}
-    <script type="text/javascript" src="{% static 'js/sf/index.js' %}?v={{ version }}"></script>
-    <link rel="stylesheet" href="{% static 'css/sf/index.css' %}?v={{ version }}">
-{% endblock %}
+{% block scripts %}<script src="{% static 'js/sf/index.js' %}?v={{ version }}" defer></script>{% endblock %}

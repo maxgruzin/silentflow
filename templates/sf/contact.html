@@ -1,23 +1,2 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}<title>Silent Flow Netlabel contact page</title>{% endblock %}
-{% block description %}
-    <meta name="description"
-          content="Release submission and contact information"
-          xmlns="http://www.w3.org/1999/html">
-{% endblock %}
-{% block content %}
-    <div class="padding-top-100"></div>
-    <div class="banner-container">
-        <h1 class="center-align">Contact</h1>
-        <h2 class="center-align">and release submission</h2>
-        <div class="center-align contact-container">
-            Feel free to contact us by email. If you're willing to become a part of our label, please send a link to your material - use file transfer sites instead of attaching flies to email.
-            <br><br>
-            <h3><a href="mailto://label@silentflow.org">label@silentflow.org</a></h3>
-
-        </div>
-    </div>
-
-    <link rel="stylesheet" href="{% static '/css/sf/contact.css' %}?v={{ version }}">
-{% endblock %}
+{% block content %}<section class="shell page-section"><header class="page-heading"><p class="eyebrow">Get in touch</p><h1>Start a conversation.</h1><p>Questions about a release, music use, or working with Silent Flow? We'd love to hear from you.</p><a class="button" href="mailto:label@silentflow.org">label@silentflow.org &#8599;</a></header><p>Sending music? <a class="text-link" href="{% url 'about' %}#submissions">Read our submission notes &#8599;</a></p></section>{% endblock %}

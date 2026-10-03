@@ -1,0 +1,4 @@
+{% if image %}<picture{% if fit == 'container' %} data-cover-image{% endif %}>
+    <source type="image/avif" srcset="{{ image.srcset }}" sizes="{{ sizes }}">
+    <img src="{{ image.fallback.url }}" alt="{{ alt }}" width="{{ image.fallback.width }}" height="{{ image.fallback.height }}" loading="{% if eager %}eager{% else %}lazy{% endif %}" decoding="async"{% if eager %} fetchpriority="high"{% endif %}>
+</picture>{% else %}<span class="artwork-placeholder"{% if alt %} role="img" aria-label="{{ alt }}"{% else %} aria-hidden="true"{% endif %}></span>{% endif %}

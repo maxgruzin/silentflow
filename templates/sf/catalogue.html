@@ -1,52 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
-{% load thumbnail %}
-{% block title %}<title>Silent Flow catalogue</title>{% endblock %}
 {% block content %}
-
-    <!--<div class="banner-container">-->
-        <!--<h1 class="center-align">Silent Flow</h1>-->
-        <!--<h2 class="center-align">ambient experimental netlabel</h2>-->
-    <!--</div>-->
-
-    <div class="padding-top-80"></div>
-<!--    <div id="filters" class="row">-->
-<!--        <div class="col s12 m3 input-field">-->
-<!--            <input id="search_release" type="text">-->
-<!--            <label for="search_release">Search release</label>-->
-<!--        </div>-->
-<!--        <div class="col s12 m3 input-field">-->
-<!--            <select multiple id="tags_select">-->
-<!--              <option value="" disabled selected>Select tag for filtering</option>-->
-<!--                {% for tag in tags %}-->
-<!--                      <option value=" {{ tag.name }}"> {{ tag.name }}</option>-->
-<!--                {% endfor %}-->
-<!--            </select>-->
-<!--{#            <label>Select tag for filtering</label>#}-->
-<!--        </div>-->
-<!--    </div>-->
-    <div id="releases_list" class="row">
-    {% for release in releases %}
-        <div class="col s12 m4 l2">
-        <div class="card dark-gray-2">
-        <a href="/release/{{ release.slug }}" >
-        <div class="card-image">
-            {% thumbnail release.cover_image "300x300" crop="center" quality=75 as im %}
-                <img src="{{ im.url }}" alt="release image">
-            {% endthumbnail %}
-        </div>
-        <div class="card-content white-text dark-gray-1">
-            <span class="card-title">{{ release.name }} [{{ release.catalogue_number }}]</span>
-        </div>
-        </a>
-        </div>
-
-        </div>
-        <!-- <div class="center-align"></div> -->
-    {% endfor %}
+<section class="shell page-section">
+    <header class="page-heading"><p class="eyebrow">The catalogue</p><h1>A world of quiet discoveries.</h1><p>Explore ambient, experimental and jazz releases. Find your next listen, then take the whole release with you.</p></header>
+    <div class="search-bar" hidden data-search-controls><label for="release-search">Find a release</label><input type="search" id="release-search" placeholder="Title, artist or catalogue number" autocomplete="off"><p id="release-count" role="status" aria-live="polite"></p></div>
+    <div class="release-grid" id="releases-list">
+        {% for release in releases %}{% include 'components/release_card.html' with searchable=True %}{% empty %}<p>No releases yet. Come back soon.</p>{% endfor %}
     </div>
+    <p id="release-empty" class="empty-state" hidden>No releases match that search. Try a different name or catalogue number.</p>
+</section>
 {% endblock %}
-{% block external %}
-    <link rel="stylesheet" href="{% static 'css/sf/catalogue.css' %}?v={{ version }}">
-    <script type="text/javascript" src="{% static 'js/sf/catalogue.js' %}?v={{ version }}"></script>
-{% endblock %}
+{% block scripts %}<script src="{% static 'js/sf/catalogue.js' %}?v={{ version }}" defer></script>{% endblock %}
