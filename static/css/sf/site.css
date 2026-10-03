@@ -169,7 +169,7 @@ ul, ol { padding-left: 1.5rem; }
 .is-playing .icon-pause { display: initial; }
 body.player-open { padding-bottom: 200px; }
 html:has(.player-open) { scroll-padding-bottom: 210px; }
-.music-player { position: fixed; z-index: 40; bottom: 0; left: 50%; transform: translateX(-50%); width: min(360px, calc(100% - 24px)); padding: 8px 0 max(7px, env(safe-area-inset-bottom)); border: 1px solid #ffffffb3; border-bottom: 0; border-radius: 12px 12px 0 0; background: #e6e8ebad; color: #212121; box-shadow: 0 -4px 30px #0003; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color-scheme: light; }
+.music-player { position: fixed; z-index: 40; bottom: 0; left: 50%; transform: translateX(-50%); width: min(360px, calc(100% - 24px)); padding: 8px 0 max(7px, env(safe-area-inset-bottom)); border: 1px solid #ffffffb3; border-bottom: 0; border-radius: 12px 12px 0 0; background: #e6e8eb80; color: #212121; box-shadow: 0 -4px 30px #0003; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color-scheme: light; }
 .music-player button { position: relative; display: grid; place-items: center; width: 44px; height: 44px; padding: 12px; background: transparent; color: #2e3033; border: 0; border-radius: 4px; }
 .music-player button:hover { background: #ffffff55; }
 .music-player :focus-visible { outline: 2px solid #244d75; outline-offset: -2px; }

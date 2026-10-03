@@ -12,12 +12,12 @@
             {% if not release.review and release.headline %}<p class="release-headline">{{ release.headline }}</p>{% endif %}
             <div class="review prose">{{ release.review|default_if_none:''|linebreaks }}</div>
             <div class="actions">
-                {% if release.download_link|safe_web_url %}<a class="button" href="{{ release.download_link|safe_web_url }}">Download release <small>MP3 &#8595;</small></a>{% endif %}
+                {% if release.download_link|safe_web_url %}<a class="button button-ghost" href="{{ release.download_link|safe_web_url }}">Download release <small>MP3 &#8595;</small></a>{% endif %}
                 {% if release.download_link_lossless|safe_web_url %}<a class="button button-ghost" href="{{ release.download_link_lossless|safe_web_url }}">Download lossless <small>FLAC &#8595;</small></a>{% endif %}
             </div>
         </div>
     </div>
-    <section class="track-section" aria-labelledby="tracklist-title"><div class="section-heading"><h2 id="tracklist-title">Press play. Listen...</h2><span class="eyebrow">Tracklist</span></div>
+    <section class="track-section" aria-labelledby="tracklist-title"><div class="section-heading"><h2 id="tracklist-title">Tracklist</h2><span class="eyebrow">Tracklist</span></div>
         <ol class="track-list">
         {% for track in tracklist %}
             <li class="track-row" id="track-{{ track.pk }}">
