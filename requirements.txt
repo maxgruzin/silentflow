@@ -1,6 +1,6 @@
 # Runtime dependencies, including transitive packages, pinned for repeatable builds.
 Django==6.1.1
-Pillow==12.3.0
+Pillow==13.0.0
 psycopg[binary]==3.3.6
 sorl-thumbnail==13.1.0
 gunicorn==26.2.0
